@@ -105,7 +105,7 @@ export default function StartPreparing() {
         />
       </div>
 
-      <div className="absolute left-1/2 -translate-x-1/2 -top-2 z-80">
+      <div className="absolute left-1/2 -translate-x-1/2 -top-2 z-20">
         <Image
           src="/images/prep/sp.png"
           alt="left arrow"

@@ -65,20 +65,20 @@ export default function ArticlesSection() {
         ))}
       </div>
 
-      <div className="absolute right-10 top-[60%] grid grid-cols-3 gap-2">
-        {[...Array(6)].map((_, i) => (
+      <div className="absolute right-0 top-[68%] grid grid-cols-3 gap-6">
+        {[...Array(9)].map((_, i) => (
           <div key={i} className="w-1.5 h-1.5 bg-green-500 rounded-full" />
         ))}
       </div>
 
       <div
-        className="absolute right-32 top-[70%] w-0 h-0 
-        border-t-[10px] border-t-transparent 
-        border-b-[10px] border-b-transparent 
-        border-l-[16px] border-l-green-500"
+        className="absolute right-20 top-[71%] w-0 h-0 
+    border-t-[10px] border-t-transparent 
+    border-b-[10px] border-b-transparent 
+    border-r-[16px] border-r-green-500"
       />
 
-        <div className="absolute bottom-23  right-54 w-[320px] h-[180px] ">
+      <div className="absolute bottom-23  right-54 w-[320px] h-[180px] ">
         <img
           src="/images/articles/hand.png"
           alt="shape"
@@ -86,7 +86,6 @@ export default function ArticlesSection() {
         />
       </div>
 
-      
       <div className="absolute bottom-0 right-0 w-[340px] h-[180px] ">
         <img
           src="/images/articles/element.png"
@@ -116,29 +115,28 @@ export default function ArticlesSection() {
         {/* Grid Layout - 50/50 Split */}
         <div className="relative flex justify-between gap-6">
           {/* LEFT - Articles (50%) */}
-          <div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {articles.map((item, i) => (
-                <div key={i} className="group cursor-pointer">
-                  <div
-                    className="w-full h-44 rounded-xl"
-                    style={checkerStyle(16)}
-                  />
+         <div>
+  <div className="grid sm:grid-cols-3 gap-6">
+    {articles.map((item, i) => (
+      <div key={i} className="group cursor-pointer">
+        <div
+          className="w-full h-44 rounded-xl"
+          style={checkerStyle(16)}
+        />
 
-                  <div className="mt-3 text-xs text-gray-400 flex gap-2">
-                    <span className="font-medium">{item.tag}</span>
-                    <span>•</span>
-                    <span>{item.date}</span>
-                  </div>
+        <div className="mt-3 text-base text-gray-400 flex gap-2">
+          <span className="font-medium">{item.tag}</span>
+          <span>•</span>
+          <span>{item.date}</span>
+        </div>
 
-                  <h3 className="mt-1 font-semibold text-gray-900 group-hover:text-blue-600 text-sm leading-snug">
-                    {item.title}
-                  </h3>
-                </div>
-              ))}
-            </div>
-          </div>
-
+        <h3 className="mt-1 font-semibold text-gray-900 group-hover:text-blue-600 text-lg leading-snug max-w-60">
+          {item.title}
+        </h3>
+      </div>
+    ))}
+  </div>
+</div>
           {/* RIGHT - News (50%) */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-gray-900">
