@@ -45,6 +45,34 @@ export default function Footer() {
   return (
     <footer className="bg-[#0F172A] text-[#CBD5E1] mt-20 md:mt-0">
       <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Mobile: Center Section at Top */}
+        <div className="block md:hidden w-full mb-12">
+          <div className="">
+            <h2 className="text-5xl font-bold tracking-wider text-white">
+              STUDYHUB
+            </h2>
+            <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
+              We help students discover the best study resources. Get the
+              latest study materials, exam updates, and preparation tips
+              delivered to your inbox.
+            </p>
+
+            {/* Subscribe */}
+            <div className="relative mt-6">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 bg-white rounded-lg text-gray-800 text-base outline-none pr-24 border border-gray-200 focus:border-[#2563EB] transition-colors shadow-md"
+              />
+              
+            </div>
+
+            <button className=" w-full bg-[#2563EB] mt-2 hover:bg-blue-700 px-8 py-3 text-base font-semibold text-white rounded-md transition-colors duration-200">
+                Subscribe
+              </button>
+          </div>
+        </div>
+
         {/* Top Section - 35-30-35 Distribution */}
         <div className="flex flex-wrap md:flex-nowrap justify-end gap-8">
           {/* Left Section - 35% */}
@@ -70,8 +98,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center Section - 30% */}
-          <div className="w-full md:w-[30%]">
+          {/* Center Section - 30% (Hidden on Mobile) */}
+          <div className="hidden md:block md:w-[30%]">
             <div className="text-center">
               <h2 className="text-5xl font-bold tracking-wider text-white">
                 STUDYHUB
@@ -82,7 +110,7 @@ export default function Footer() {
                 delivered to your inbox.
               </p>
 
-              {/* Subscribe - Centered and styled */}
+              {/* Subscribe */}
               <div className="relative mt-6">
                 <input
                   type="email"
