@@ -1,4 +1,10 @@
+'use client'
+
+import { useTheme } from "@/context/ThemeContext";
+
 export default function Footer() {
+ const { darkMode } = useTheme();
+  
   const footerData = [
     {
       title: "Explore",
@@ -43,7 +49,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0F172A] text-[#CBD5E1] ">
+    <footer className="bg-[#181818] text-[#CBD5E1]">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Mobile: Center Section at Top */}
         <div className="block md:hidden w-full mb-12">
@@ -62,14 +68,22 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 bg-white rounded-lg text-gray-800 text-base outline-none pr-24 border border-gray-200 focus:border-[#2563EB] transition-colors shadow-md"
+                className={`w-full px-4 py-3 rounded-lg text-base outline-none pr-28 border transition-colors shadow-md ${
+                  darkMode
+                    ? "bg-[#1A1A1A] border-gray-700 text-gray-200 placeholder:text-gray-500"
+                    : "bg-white border-gray-200 text-gray-800"
+                } focus:border-[#2563EB]`}
               />
-              
+              <button className="absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
+                <span className="absolute inset-0 bg-[#2563EB] transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0"></span>
+                <span className="absolute inset-0 bg-[#1d4ed8] transition-transform duration-300 transform translate-x-0 group-hover:translate-x-full"></span>
+                <span className="relative z-10 flex items-center justify-center w-full h-full">Subscribe</span>
+              </button>
             </div>
 
-            <button className=" w-full bg-[#2563EB] mt-2 hover:bg-blue-700 px-8 py-3 text-base font-semibold text-white rounded-md transition-colors duration-200">
-                Subscribe
-              </button>
+            <button className="w-full bg-[#2563EB] mt-2 hover:bg-blue-700 px-8 py-3 text-base font-semibold text-white rounded-md transition-colors duration-200">
+              Subscribe
+            </button>
           </div>
         </div>
 
@@ -115,10 +129,16 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-white rounded-lg text-gray-800 text-base outline-none pr-24 border border-gray-200 focus:border-[#2563EB] transition-colors shadow-md"
+                  className={`w-full px-4 py-3 rounded-lg text-base outline-none pr-28 border transition-colors shadow-md ${
+                    darkMode
+                      ? "bg-black border-gray-900 text-gray-200 placeholder:text-gray-500"
+                      : "bg-white border-gray-200 text-gray-800"
+                  } focus:border-[#2563EB]`}
                 />
-                <button className="absolute right-1 top-1 bottom-1 bg-[#2563EB] hover:bg-blue-700 px-4 text-base font-semibold text-white rounded-md transition-colors duration-200">
-                  Subscribe
+                <button className="absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
+                  <span className="absolute inset-0 bg-[#2563EB] transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0"></span>
+                  <span className="absolute inset-0 bg-[#1d4ed8] transition-transform duration-300 transform translate-x-0 group-hover:translate-x-full"></span>
+                  <span className="relative z-10 flex items-center justify-center w-full h-full">Subscribe</span>
                 </button>
               </div>
             </div>

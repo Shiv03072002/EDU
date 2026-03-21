@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 
 const promotionTypes = [
   "Course Promotion",
@@ -13,6 +14,7 @@ const promotionTypes = [
 ];
 
 export default function PromoteSection() {
+  const { darkMode } = useTheme();
   const [form, setForm] = useState({
     platformName: "",
     websiteURL: "",
@@ -32,19 +34,27 @@ export default function PromoteSection() {
   };
 
   return (
-    <section className="relative w-full bg-[#f8f9fb] overflow-hidden py-14 px-6 md:px-12 lg:px-20">
+    <section className={`relative w-full overflow-hidden py-14 px-6 md:px-12 lg:px-20 ${
+      darkMode ? "bg-[#111111]" : "bg-[#f8f9fb]"
+    }`}>
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
         {/* ── LEFT COLUMN (50%) – HIDDEN ON MOBILE ── */}
         <div className="hidden lg:flex flex-col gap-6">
           {/* Badge */}
-         <div className="w-fit">
-  <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-blue-600 bg-blue-100 px-3 py-1 rounded-full whitespace-nowrap">
-    Partner With Us
-  </p>
-</div>
+          <div className="w-fit">
+            <p className={`text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full whitespace-nowrap ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400"
+                : "bg-blue-100 text-blue-600"
+            }`}>
+              Partner With Us
+            </p>
+          </div>
 
           {/* Heading */}
-          <h2 className="font-black text-[2.6rem] leading-[1.15] text-gray-950 max-w-lg">
+          <h2 className={`font-black text-[2.6rem] leading-[1.15] max-w-lg ${
+            darkMode ? "text-white" : "text-gray-950"
+          }`}>
             Promote Your Learning Platform To Thousands Of Students
           </h2>
 
@@ -90,7 +100,9 @@ export default function PromoteSection() {
 
             {/* Play button */}
             <button 
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-18 h-18 rounded-full bg-white flex items-center justify-center z-50"
+              className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-18 h-18 rounded-full flex items-center justify-center z-50 ${
+                darkMode ? "bg-[#1A1A1A]" : "bg-white"
+              }`}
               aria-label="Play video"
             >
               <motion.svg
@@ -178,7 +190,11 @@ export default function PromoteSection() {
           {/* Mobile Header with Badge and Images */}
           <div className="lg:hidden flex items-center justify-between w-full mb-2">
             {/* Badge */}
-            <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+            <p className={`text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400"
+                : "bg-blue-100 text-blue-600"
+            }`}>
               Partner With Us
             </p>
             
@@ -203,15 +219,21 @@ export default function PromoteSection() {
           </div>
 
           {/* Heading - SHOWN ON MOBILE (smaller size) */}
-          <h2 className="lg:hidden font-black text-[2rem] md:text-[2.4rem] leading-tight text-gray-950 max-w-2xl mb-2">
+          <h2 className={`lg:hidden font-black text-[2rem] md:text-[2.4rem] leading-tight max-w-2xl mb-2 ${
+            darkMode ? "text-white" : "text-gray-950"
+          }`}>
             Promote Your Learning Platform To Thousands Of Students
           </h2>
 
-          <p className="text-gray-600 text-md leading-relaxed max-w-120 mt-2 lg:mt-8">
+          <p className={`text-md leading-relaxed max-w-120 mt-2 lg:mt-8 ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}>
             Want to promote your courses, study materials, or learning platform?
           </p>
           
-          <p className="text-gray-900 font-bold text-[15px] leading-relaxed max-w-120">
+          <p className={`font-bold text-[15px] leading-relaxed max-w-120 ${
+            darkMode ? "text-gray-200" : "text-gray-900"
+          }`}>
             Submit your platform and connect with students looking for the best
             resources for their exams and studies.
           </p>
@@ -220,7 +242,9 @@ export default function PromoteSection() {
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label className="text-[15px] font-medium text-gray-700">
+                <label className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}>
                   Platform Name
                 </label>
                 <input
@@ -228,11 +252,17 @@ export default function PromoteSection() {
                   value={form.platformName}
                   onChange={handleChange}
                   placeholder="Enter your platform name"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className={`w-full rounded-lg border px-4 py-3 text-[14px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
+                    darkMode
+                      ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                      : "bg-white border-gray-300 text-gray-800"
+                  }`}
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className="text-[15px] font-medium text-gray-700">
+                <label className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}>
                   Website URL
                 </label>
                 <input
@@ -240,7 +270,11 @@ export default function PromoteSection() {
                   value={form.websiteURL}
                   onChange={handleChange}
                   placeholder="https://yourwebsite.com"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className={`w-full rounded-lg border px-4 py-3 text-[14px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
+                    darkMode
+                      ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                      : "bg-white border-gray-300 text-gray-800"
+                  }`}
                 />
               </div>
             </div>
@@ -248,7 +282,9 @@ export default function PromoteSection() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label className="text-[15px] font-medium text-gray-700">
+                <label className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}>
                   Contact Email
                 </label>
                 <input
@@ -257,11 +293,17 @@ export default function PromoteSection() {
                   onChange={handleChange}
                   placeholder="Enter your email address"
                   type="email"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className={`w-full rounded-lg border px-4 py-3 text-[14px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
+                    darkMode
+                      ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                      : "bg-white border-gray-300 text-gray-800"
+                  }`}
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className="text-[15px] font-medium text-gray-700">
+                <label className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}>
                   Promotion Type
                 </label>
                 <div className="relative">
@@ -269,7 +311,11 @@ export default function PromoteSection() {
                     name="promotionType"
                     value={form.promotionType}
                     onChange={handleChange}
-                    className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition pr-10"
+                    className={`w-full appearance-none rounded-lg border px-4 py-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition pr-10 ${
+                      darkMode
+                        ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                        : "bg-white border-gray-300 text-gray-700"
+                    }`}
                   >
                     <option value="" disabled>
                       Select Option
@@ -281,7 +327,9 @@ export default function PromoteSection() {
                     ))}
                   </select>
                   <svg
-                    className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
+                    className={`pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 ${
+                      darkMode ? "text-gray-500" : "text-gray-500"
+                    }`}
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -299,7 +347,9 @@ export default function PromoteSection() {
 
             {/* Row 3 — full width */}
             <div className="flex flex-col gap-1">
-              <label className="text-[15px] font-medium text-gray-700">
+              <label className={`text-[15px] font-medium ${
+                darkMode ? "text-gray-300" : "text-gray-700"
+              }`}>
                 Target Exams / Classes
               </label>
               <input
@@ -307,13 +357,19 @@ export default function PromoteSection() {
                 value={form.targetExams}
                 onChange={handleChange}
                 placeholder="Example: NEET, JEE, Class 10, CBSE"
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                className={`w-full rounded-lg border px-4 py-3 text-[14px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
+                  darkMode
+                    ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                    : "bg-white border-gray-300 text-gray-800"
+                }`}
               />
             </div>
 
             {/* Row 4 — textarea */}
             <div className="flex flex-col gap-1">
-              <label className="text-[15px] font-medium text-gray-700">
+              <label className={`text-[15px] font-medium ${
+                darkMode ? "text-gray-300" : "text-gray-700"
+              }`}>
                 Message
               </label>
               <textarea
@@ -322,7 +378,11 @@ export default function PromoteSection() {
                 onChange={handleChange}
                 rows={4}
                 placeholder="Tell us about your platform, courses, or resources you want to promote."
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                className={`w-full rounded-lg border px-4 py-3 text-[14px] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none ${
+                  darkMode
+                    ? "bg-[#1A1A1A] border-gray-700 text-gray-200"
+                    : "bg-white border-gray-300 text-gray-800"
+                }`}
               />
             </div>
 

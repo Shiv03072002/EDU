@@ -2,8 +2,10 @@
 
 import { Search, BookOpen, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function StudyResources() {
+  const { darkMode } = useTheme();
   const cards = [
     {
       title: "Study Notes",
@@ -32,14 +34,16 @@ export default function StudyResources() {
 
   // Mobile step circles - no animation
   const MobileStepCircles = () => (
-    <div className="flex items-center justify-center gap-8 sm:gap-16 md:gap-20 mt-10 md:mt-20 ">
+    <div className="flex items-center justify-center gap-8 sm:gap-16 md:gap-20 mt-10 md:mt-20">
       {steps.map((step, index) => {
         const IconComponent = step.icon;
         return (
-          <div key={index} className="flex flex-col items-center ">
+          <div key={index} className="flex flex-col items-center">
             <div className="relative">
               <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  darkMode ? "bg-white" : "bg-white"
+                }`}>
                   <IconComponent size={14} className="text-blue-600" />
                 </div>
               </div>
@@ -70,11 +74,13 @@ export default function StudyResources() {
               times: [0, 0.25, 0.5, 0.75, 1],
               delay: step.delay,
             }}
-            whileHover={{ y: -8 }}
+           
           >
             <div className="relative">
               <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  darkMode ? "bg-white" : "bg-white"
+                }`}>
                   <IconComponent size={14} className="text-blue-600" />
                 </div>
               </div>
@@ -89,19 +95,29 @@ export default function StudyResources() {
   );
 
   return (
-    <section className="bg-[#F1F5F9] py-12 md:py-20 px-4 sm:px-6 md:px-10">
+    <section className={`py-12 md:py-20 px-4 sm:px-6 md:px-10 ${
+      darkMode ? "bg-[#111111]" : "bg-[#F1F5F9]"
+    }`}>
       <div className="max-w-7xl mx-auto">
 
         {/* ── MOBILE & TABLET (< lg): stacked layout ── */}
         <div className="lg:hidden">
           {/* Header */}
-          <p className="text-blue-600 bg-blue-100 rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-1">
+          <p className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-1 ${
+            darkMode
+              ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+              : "bg-blue-100 text-blue-600"
+          }`}>
             Inside Studyhub
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-3 max-w-sm">
+          <h2 className={`text-2xl sm:text-3xl font-bold leading-tight mb-3 max-w-sm ${
+            darkMode ? "text-white" : "text-gray-900"
+          }`}>
             Study Smarter With The Right Resources
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base max-w-lg mb-8">
+          <p className={`text-sm sm:text-base max-w-lg mb-8 ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}>
             Explore different types of study materials available on our platform
             to help you prepare better for school and competitive exams.
           </p>
@@ -114,13 +130,27 @@ export default function StudyResources() {
                 className={`relative px-5 py-5 rounded-xl ${
                   card.highlight
                     ? "bg-blue-600 text-white"
-                    : "bg-white text-gray-800 border border-gray-100"
+                    : darkMode
+                      ? "bg-[#1A1A1A] text-gray-200 border border-gray-800"
+                      : "bg-white text-gray-800 border border-gray-100"
                 }`}
               >
-                <h3 className={`font-bold text-lg mb-2 ${card.highlight ? "text-white" : "text-gray-900"}`}>
+                <h3 className={`font-bold text-lg mb-2 ${
+                  card.highlight 
+                    ? "text-white" 
+                    : darkMode 
+                      ? "text-white" 
+                      : "text-gray-900"
+                }`}>
                   {card.title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${card.highlight ? "text-blue-100" : "text-gray-600"}`}>
+                <p className={`text-sm leading-relaxed ${
+                  card.highlight 
+                    ? "text-blue-100" 
+                    : darkMode 
+                      ? "text-gray-400" 
+                      : "text-gray-600"
+                }`}>
                   {card.desc}
                 </p>
               </div>
@@ -135,13 +165,21 @@ export default function StudyResources() {
         <div className="hidden lg:grid lg:grid-cols-2 items-start gap-4">
           {/* LEFT */}
           <div className="justify-self-start">
-            <p className="text-blue-600 bg-blue-100 rounded-full text-sm font-semibold mb-4 uppercase tracking-wider inline-block px-4 py-1">
+            <p className={`rounded-full text-sm font-semibold mb-4 uppercase tracking-wider inline-block px-4 py-1 ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                : "bg-blue-100 text-blue-600"
+            }`}>
               Inside Studyhub
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 max-w-xl">
+            <h2 className={`text-4xl md:text-5xl font-bold leading-tight mb-4 max-w-xl ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}>
               Study Smarter With the Right Resources
             </h2>
-            <p className="text-gray-600 text-md max-w-lg mb-12">
+            <p className={`text-md max-w-lg mb-12 ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}>
               Explore different types of study materials available on our platform
               to help you prepare better for school and competitive exams.
             </p>
@@ -155,19 +193,31 @@ export default function StudyResources() {
             {cards.map((card, i) => (
               <div key={i} className="relative">
                 {i === 1 && (
-                  <div className="absolute -right-14 -top-10 w-24 h-24 rounded-full border-4 border-dotted border-gray-300 bg-transparent z-0" />
+                  <div className={`absolute -right-14 -top-10 w-24 h-24 rounded-full border-4 border-dotted z-0 ${
+                    darkMode ? "border-gray-700" : "border-gray-300"
+                  }`} />
                 )}
                 <div
                   className={`px-6 py-6 rounded-xl relative z-10 ${
                     card.highlight
                       ? "bg-blue-600 text-white"
-                      : "bg-white text-gray-800"
+                      : darkMode
+                        ? "bg-[#1A1A1A] text-gray-200 border border-gray-800 "
+                        : "bg-white text-gray-800"
                   }`}
                 >
-                  <h3 className="font-bold text-xl">{card.title}</h3>
+                  <h3 className={`font-bold text-xl ${
+                    card.highlight ? "text-white" : darkMode ? "text-white" : ""
+                  }`}>
+                    {card.title}
+                  </h3>
                   <p
                     className={`text-base leading-relaxed ${
-                      card.highlight ? "text-blue-100" : "text-gray-600"
+                      card.highlight 
+                        ? "text-blue-100" 
+                        : darkMode 
+                          ? "text-gray-400" 
+                          : "text-gray-600"
                     }`}
                   >
                     {card.desc}

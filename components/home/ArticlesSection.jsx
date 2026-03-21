@@ -4,7 +4,10 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
+
 export default function ArticlesSection() {
+  const { darkMode } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentNews, setCurrentNews] = useState(0);
 
@@ -48,14 +51,14 @@ export default function ArticlesSection() {
 
   const checkerStyle = (size = 16) => ({
     backgroundImage: `
-      linear-gradient(45deg, #e5e7eb 25%, transparent 25%),
-      linear-gradient(-45deg, #e5e7eb 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #e5e7eb 75%),
-      linear-gradient(-45deg, transparent 75%, #e5e7eb 75%)
+      linear-gradient(45deg, ${darkMode ? '#2A2A2A' : '#e5e7eb'} 25%, transparent 25%),
+      linear-gradient(-45deg, ${darkMode ? '#2A2A2A' : '#e5e7eb'} 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, ${darkMode ? '#2A2A2A' : '#e5e7eb'} 75%),
+      linear-gradient(-45deg, transparent 75%, ${darkMode ? '#2A2A2A' : '#e5e7eb'} 75%)
     `,
     backgroundSize: `${size}px ${size}px`,
     backgroundPosition: `0 0, 0 ${size / 2}px, ${size / 2}px -${size / 2}px, -${size / 2}px 0px`,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: darkMode ? "#1A1A1A" : "#f0f0f0",
   });
 
   const prev = () =>
@@ -63,8 +66,11 @@ export default function ArticlesSection() {
   const next = () => setCurrentSlide((s) => (s + 1) % articles.length);
 
   return (
-    <section className="relative py-12 lg:py-20 bg-white overflow-hidden">
-      <div className="  absolute -left-5 lg:-left-16 top-2 md:top-2 w-10 md:w-30 z-10">
+    <section className={`relative py-12 lg:py-20 overflow-hidden ${
+      darkMode ? "bg-[#0A0A0A]" : "bg-white"
+    }`}>
+      {/* Decorative star */}
+      <div className="absolute -left-5 lg:-left-16 top-2 md:top-2 w-10 md:w-30 z-10">
         <motion.div>
           <Image
             src="/images/home/Component107.png"
@@ -76,53 +82,56 @@ export default function ArticlesSection() {
         </motion.div>
       </div>
 
-     {/* Mobile version - smaller size */}
-<motion.div
-  className="absolute opacity-60 block lg:hidden"
-  style={{
-    top: "1rem",
-    right: "10%",
-  }}
-  animate={{ rotate: 360 }}
-  transition={{
-    duration: 4,
-    repeat: Infinity,
-    ease: "linear",
-  }}
->
-  <div
-    className="w-0 h-0"
-    style={{
-      borderLeft: "8px solid transparent",
-      borderRight: "8px solid transparent",
-      borderBottom: "14px solid #d1d5db",
-    }}
-  />
-</motion.div>
+      {/* Mobile triangle */}
+      <motion.div
+        className="absolute opacity-60 block lg:hidden"
+        style={{
+          top: "1rem",
+          right: "10%",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <div
+          className="w-0 h-0"
+          style={{
+            borderLeft: "8px solid transparent",
+            borderRight: "8px solid transparent",
+            borderBottom: `14px solid ${darkMode ? "#4B5563" : "#d1d5db"}`,
+          }}
+        />
+      </motion.div>
 
-{/* Desktop version - original size and position */}
-<motion.div
-  className="absolute top-16 right-[50%] opacity-60 hidden lg:block"
-  animate={{ rotate: 360 }}
-  transition={{
-    duration: 4,
-    repeat: Infinity,
-    ease: "linear",
-  }}
->
-  <div
-    className="w-0 h-0"
-    style={{
-      borderLeft: "20px solid transparent",
-      borderRight: "20px solid transparent",
-      borderBottom: "32px solid #d1d5db",
-    }}
-  />
-</motion.div>
+      {/* Desktop triangle */}
+      <motion.div
+        className="absolute top-16 right-[50%] opacity-60 hidden lg:block"
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        <div
+          className="w-0 h-0"
+          style={{
+            borderLeft: "20px solid transparent",
+            borderRight: "20px solid transparent",
+            borderBottom: `32px solid ${darkMode ? "#4B5563" : "#d1d5db"}`,
+          }}
+        />
+      </motion.div>
+
       {/* 3x2 dots under the triangle */}
-      <div className="grid absolute top-14 md:top-40 right-10 md:right-[49%]  grid-cols-3 gap-3 lg:gap-5 opacity-40">
+      <div className="grid absolute top-14 md:top-40 right-10 md:right-[49%] grid-cols-3 gap-3 lg:gap-5 opacity-40">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className=" w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400 rounded-full" />
+          <div key={i} className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${
+            darkMode ? "bg-gray-500" : "bg-gray-400"
+          }`} />
         ))}
       </div>
 
@@ -133,10 +142,7 @@ export default function ArticlesSection() {
         ))}
       </div>
       <motion.div
-        className="hidden lg:block absolute right-18 top-[70%] w-0 h-0
-   border-t-[18px] border-t-transparent
-  border-b-[18px] border-b-transparent
-  border-r-[32px] border-r-green-500"
+        className="hidden lg:block absolute right-18 top-[70%] w-0 h-0 border-t-[18px] border-t-transparent border-b-[18px] border-b-transparent border-r-[32px] border-r-green-500"
         animate={{ y: [0, 60, 0] }}
         transition={{
           duration: 2,
@@ -164,29 +170,35 @@ export default function ArticlesSection() {
       <div className="px-4 sm:px-6 lg:px-16 max-w-[1400px] mx-auto">
         {/* ── DESKTOP lg+ ── */}
         <div className="hidden lg:block">
-          {/* Header row: title left (~55%), description right (~45% aligned to news) */}
+          {/* Header row */}
           <div className="flex items-center mb-10">
-            {/* Left ~55% */}
             <div style={{ width: "55%" }}>
-              <span className="inline-block text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-semibold mb-4">
+              <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-4 ${
+                darkMode
+                  ? "bg-blue-950/50 text-blue-400"
+                  : "bg-blue-100 text-blue-600"
+              }`}>
                 LATEST ARTICLES
               </span>
-              <h2 className="text-3xl xl:text-4xl font-bold text-gray-900 leading-tight max-w-md">
+              <h2 className={`text-3xl xl:text-4xl font-bold leading-tight max-w-md ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}>
                 Helpful Guides To Boost Your Exam Preparation
               </h2>
             </div>
-            {/* Right ~45% — description sits top-right aligned with news column */}
             <div className="pt-2 pl-8">
-              <p className="text-gray-500 text-md leading-relaxed max-w-lg">
+              <p className={`text-md leading-relaxed max-w-lg ${
+                darkMode ? "text-gray-400" : "text-gray-500"
+              }`}>
                 Explore study strategies, exam preparation tips, and helpful
                 guides designed to support your learning journey.
               </p>
             </div>
           </div>
 
-          {/* Content row: articles left (~55%), news right (~45%) */}
+          {/* Content row */}
           <div className="flex items-start gap-0">
-            {/* LEFT — 2×2 articles, tall images */}
+            {/* LEFT — 2×2 articles */}
             <div style={{ width: "55%" }} className="pr-8">
               <div className="grid grid-cols-2 gap-5">
                 {articles.map((item, i) => (
@@ -195,14 +207,18 @@ export default function ArticlesSection() {
                       className="w-full rounded-xl"
                       style={{ ...checkerStyle(16), height: "230px" }}
                     />
-                    <div className="mt-3 text-xs text-gray-400 flex items-center gap-2">
-                      <span className="font-semibold text-gray-500 uppercase tracking-wide">
+                    <div className="mt-3 text-xs flex items-center gap-2">
+                      <span className={`font-semibold uppercase tracking-wide ${
+                        darkMode ? "text-gray-400" : "text-gray-500"
+                      }`}>
                         {item.tag}
                       </span>
-                      <span className="text-gray-300 font-bold">•</span>
-                      <span>{item.date}</span>
+                      <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+                      <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{item.date}</span>
                     </div>
-                    <h3 className="mt-1.5 font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-base xl:text-lg leading-snug">
+                    <h3 className={`mt-1.5 font-bold text-base xl:text-lg leading-snug transition-colors group-hover:text-blue-600 ${
+                      darkMode ? "text-white" : "text-gray-900"
+                    }`}>
                       {item.title}
                     </h3>
                   </div>
@@ -211,8 +227,10 @@ export default function ArticlesSection() {
             </div>
 
             {/* RIGHT — Latest News */}
-            <div style={{ width: "45%" }} className="pl-8 ">
-              <h3 className="text-xl font-bold mb-6 text-gray-900">
+            <div style={{ width: "45%" }} className="pl-8">
+              <h3 className={`text-xl font-bold mb-6 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}>
                 Latest News
               </h3>
               <div className="space-y-6">
@@ -221,7 +239,6 @@ export default function ArticlesSection() {
                     key={i}
                     className="flex gap-4 items-start group cursor-pointer"
                   >
-                    {/* Wider thumbnail matching Figma */}
                     <div
                       className="rounded-lg flex-shrink-0"
                       style={{
@@ -231,12 +248,14 @@ export default function ArticlesSection() {
                       }}
                     />
                     <div className="min-w-0">
-                      <div className="text-xs text-gray-400 mb-1.5 font-semibold tracking-widest flex items-center gap-2 uppercase">
-                        <span>Exam Update</span>
-                        <span className="text-gray-300 font-bold">•</span>
-                        <span>{item.date}</span>
+                      <div className="text-xs mb-1.5 font-semibold tracking-widest flex items-center gap-2 uppercase">
+                        <span className={darkMode ? "text-gray-400" : "text-gray-500"}>Exam Update</span>
+                        <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+                        <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{item.date}</span>
                       </div>
-                      <p className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-snug max-w-sm">
+                      <p className={`text-xl font-bold leading-snug max-w-sm transition-colors group-hover:text-blue-600 ${
+                        darkMode ? "text-white" : "text-gray-900"
+                      }`}>
                         {item.title}
                       </p>
                     </div>
@@ -250,14 +269,22 @@ export default function ArticlesSection() {
         {/* ── TABLET md ── */}
         <div className="hidden md:block lg:hidden">
           <div className="mb-8">
-            <span className="inline-block text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-semibold mb-3">
+            <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-3 ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400"
+                : "bg-blue-100 text-blue-600"
+            }`}>
               LATEST ARTICLES
             </span>
             <div className="flex items-start justify-between gap-6">
-              <h2 className="text-3xl font-bold text-gray-900 leading-tight max-w-xs">
+              <h2 className={`text-3xl font-bold leading-tight max-w-xs ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}>
                 Helpful Guides To Boost Your Exam Preparation
               </h2>
-              <p className="text-gray-500 text-sm max-w-xs pt-1">
+              <p className={`text-sm max-w-xs pt-1 ${
+                darkMode ? "text-gray-400" : "text-gray-500"
+              }`}>
                 Explore study strategies, exam preparation tips, and helpful
                 guides designed to support your learning journey.
               </p>
@@ -271,21 +298,29 @@ export default function ArticlesSection() {
                   className="w-full h-44 rounded-xl"
                   style={checkerStyle(16)}
                 />
-                <div className="mt-3 text-xs text-gray-400 flex items-center gap-2">
-                  <span className="font-semibold text-gray-500 uppercase">
+                <div className="mt-3 text-xs flex items-center gap-2">
+                  <span className={`font-semibold uppercase ${
+                    darkMode ? "text-gray-400" : "text-gray-500"
+                  }`}>
                     {item.tag}
                   </span>
-                  <span className="text-gray-300">•</span>
-                  <span>{item.date}</span>
+                  <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+                  <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{item.date}</span>
                 </div>
-                <h3 className="mt-1.5 font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-base leading-snug">
+                <h3 className={`mt-1.5 font-bold text-base leading-snug transition-colors group-hover:text-blue-600 ${
+                  darkMode ? "text-white" : "text-gray-900"
+                }`}>
                   {item.title}
                 </h3>
               </div>
             ))}
           </div>
 
-          <h3 className="text-lg font-bold mb-5 text-gray-900">Latest News</h3>
+          <h3 className={`text-lg font-bold mb-5 ${
+            darkMode ? "text-white" : "text-gray-900"
+          }`}>
+            Latest News
+          </h3>
           <div className="space-y-4">
             {news.map((item, i) => (
               <div
@@ -297,12 +332,14 @@ export default function ArticlesSection() {
                   style={checkerStyle(10)}
                 />
                 <div>
-                  <div className="text-xs text-gray-400 mb-1 font-semibold tracking-widest uppercase flex items-center gap-2">
-                    <span>Exam Update</span>
-                    <span className="text-gray-300">•</span>
-                    <span>{item.date}</span>
+                  <div className="text-xs mb-1 font-semibold tracking-widest uppercase flex items-center gap-2">
+                    <span className={darkMode ? "text-gray-400" : "text-gray-500"}>Exam Update</span>
+                    <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+                    <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{item.date}</span>
                   </div>
-                  <p className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <p className={`text-lg font-bold leading-snug transition-colors group-hover:text-blue-600 ${
+                    darkMode ? "text-white" : "text-gray-900"
+                  }`}>
                     {item.title}
                   </p>
                 </div>
@@ -315,13 +352,21 @@ export default function ArticlesSection() {
         <div className="block md:hidden">
           {/* Header */}
           <div className="mb-7">
-            <span className="inline-block text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-semibold mb-3">
+            <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-3 ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400"
+                : "bg-blue-100 text-blue-600"
+            }`}>
               LATEST ARTICLES
             </span>
-            <h2 className="text-2xl font-bold text-gray-900 leading-tight mb-3">
+            <h2 className={`text-2xl font-bold leading-tight mb-3 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}>
               Helpful Guides To Boost Your Exam Preparation
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className={`text-sm leading-relaxed ${
+              darkMode ? "text-gray-400" : "text-gray-500"
+            }`}>
               Explore study strategies, exam preparation tips, and helpful
               guides designed to support your learning journey.
             </p>
@@ -329,36 +374,50 @@ export default function ArticlesSection() {
 
           {/* Article carousel */}
           <div>
-            <div className="relative rounded-xl ">
+            <div className="relative rounded-xl">
               <div className="w-full h-56" style={checkerStyle(16)} />
               <button
                 onClick={prev}
-                className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-blue-600  flex items-center justify-center text-blue-600"
+                className={`absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border flex items-center justify-center ${
+                  darkMode
+                    ? "border-blue-500 bg-[#1A1A1A] text-blue-500"
+                    : "border-blue-600 bg-white text-blue-600"
+                }`}
               >
-                <ChevronLeft className="w-4 h-4 text-blue-600" />
+                <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={next}
-                className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-blue-600 shadow-md flex items-center justify-center text-blue-600"
+                className={`absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border flex items-center justify-center ${
+                  darkMode
+                    ? "border-blue-500 bg-[#1A1A1A] text-blue-500"
+                    : "border-blue-600 bg-white text-blue-600"
+                }`}
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
-            <div className="mt-3 text-xs text-gray-400 flex items-center gap-2">
-              <span className="font-semibold text-gray-500 uppercase">
+            <div className="mt-3 text-xs flex items-center gap-2">
+              <span className={`font-semibold uppercase ${
+                darkMode ? "text-gray-400" : "text-gray-500"
+              }`}>
                 {articles[currentSlide].tag}
               </span>
-              <span className="text-gray-300">•</span>
-              <span>{articles[currentSlide].date}</span>
+              <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+              <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{articles[currentSlide].date}</span>
             </div>
-            <h3 className="mt-1.5 font-bold text-gray-900 text-base leading-snug">
+            <h3 className={`mt-1.5 font-bold text-base leading-snug ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}>
               {articles[currentSlide].title}
             </h3>
           </div>
 
           {/* News carousel */}
           <div className="mt-8">
-            <h3 className="text-lg font-bold mb-4 text-gray-900">
+            <h3 className={`text-lg font-bold mb-4 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}>
               Latest News
             </h3>
             <div className="flex gap-3 items-start">
@@ -367,12 +426,14 @@ export default function ArticlesSection() {
                 style={checkerStyle(10)}
               />
               <div>
-                <div className="text-xs text-gray-400 mb-3 font-semibold tracking-widest uppercase flex items-center gap-2">
-                  <span>Exam Update</span>
-                  <span className="text-gray-300">•</span>
-                  <span>{news[currentNews].date}</span>
+                <div className="text-xs mb-3 font-semibold tracking-widest uppercase flex items-center gap-2">
+                  <span className={darkMode ? "text-gray-400" : "text-gray-500"}>Exam Update</span>
+                  <span className={darkMode ? "text-gray-600" : "text-gray-300"}>•</span>
+                  <span className={darkMode ? "text-gray-500" : "text-gray-400"}>{news[currentNews].date}</span>
                 </div>
-                <p className="text-md font-bold text-gray-900 leading-snug">
+                <p className={`text-md font-bold leading-snug ${
+                  darkMode ? "text-white" : "text-gray-900"
+                }`}>
                   {news[currentNews].title}
                 </p>
               </div>
@@ -385,7 +446,7 @@ export default function ArticlesSection() {
                   className={`rounded-full transition-all duration-300 ${
                     i === currentNews
                       ? "w-4 h-2 bg-blue-600"
-                      : "w-2 h-2 bg-gray-300"
+                      : `w-2 h-2 ${darkMode ? "bg-gray-600" : "bg-gray-300"}`
                   }`}
                 />
               ))}
