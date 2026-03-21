@@ -242,7 +242,7 @@ export default function Header() {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-sm shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-full  shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } ${darkMode ? "bg-[#0A0A0A]" : "bg-white"}`}
       >
