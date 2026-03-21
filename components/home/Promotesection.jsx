@@ -35,7 +35,7 @@ export default function PromoteSection() {
 
   return (
     <section className={`relative w-full overflow-hidden py-14 px-6 md:px-12 lg:px-20 ${
-      darkMode ? "bg-[#111111]" : "bg-[#f8f9fb]"
+      darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
     }`}>
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
         {/* ── LEFT COLUMN (50%) – HIDDEN ON MOBILE ── */}

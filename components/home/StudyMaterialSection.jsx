@@ -183,7 +183,7 @@ export default function ResourcesSection() {
 
   return (
     <section className={`relative py-12 md:py-16 px-4 sm:px-6 md:px-10 overflow-hidden ${
-      darkMode ? "bg-[#0A0A0A]" : "bg-[#f8fafc]"
+      darkMode ? "bg-[#0A0A0A]" : "bg-[#ffffff]"
     }`}>
       {/* Decorative images — desktop only */}
       <motion.img
@@ -270,7 +270,7 @@ export default function ResourcesSection() {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`group border rounded-2xl p-5 text-left transition-all duration-300 cursor-pointer ${
+                className={`group border rounded-md p-5 text-left transition-all duration-300 cursor-pointer ${
                   darkMode
                     ? "bg-[#1A1A1A] border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/40"
                     : "bg-white border-gray-200 hover:shadow-lg hover:border-gray-300"

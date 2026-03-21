@@ -96,7 +96,7 @@ export default function StudyResources() {
 
   return (
     <section className={`py-12 md:py-20 px-4 sm:px-6 md:px-10 ${
-      darkMode ? "bg-[#111111]" : "bg-[#F1F5F9]"
+      darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
     }`}>
       <div className="max-w-7xl mx-auto">
 
@@ -191,21 +191,21 @@ export default function StudyResources() {
           {/* RIGHT — 2×2 grid */}
           <div className="grid sm:grid-cols-2 gap-6">
             {cards.map((card, i) => (
-              <div key={i} className="relative">
+              <div key={i} className="relative  ">
                 {i === 1 && (
                   <div className={`absolute -right-14 -top-10 w-24 h-24 rounded-full border-4 border-dotted z-0 ${
                     darkMode ? "border-gray-700" : "border-gray-300"
                   }`} />
                 )}
-                <div
-                  className={`px-6 py-6 rounded-xl relative z-10 ${
-                    card.highlight
-                      ? "bg-blue-600 text-white"
-                      : darkMode
-                        ? "bg-[#1A1A1A] text-gray-200 border border-gray-800 "
-                        : "bg-white text-gray-800"
-                  }`}
-                >
+               <div
+  className={`px-6 py-6 rounded-md relative z-10 ${
+    card.highlight
+      ? "bg-blue-600 text-white border border-blue-500"
+      : darkMode
+        ? "bg-[#1A1A1A] text-gray-200 border border-gray-700"
+        : "bg-white text-gray-800 border border-gray-200"
+  }`}
+>
                   <h3 className={`font-bold text-xl ${
                     card.highlight ? "text-white" : darkMode ? "text-white" : ""
                   }`}>

@@ -28,7 +28,7 @@ export default function StartPreparing() {
 
   return (
     <section className={`relative py-16 px-4 sm:px-6 md:px-10 ${
-      darkMode ? "bg-[#111111]" : "bg-gray-100"
+      darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
     }`}>
       <div className="max-w-7xl mx-auto">
         {/* TOP SECTION */}
