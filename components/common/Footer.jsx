@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Top Section - 35-30-35 Distribution */}
-        <div className="flex flex-wrap md:flex-nowrap justify-end gap-8">
+        <div className="flex flex-wrap md:flex-nowrap justify-between gap-8">
           {/* Left Section - 35% */}
           <div className="w-full md:w-[35%]">
             <div className="grid grid-cols-2 gap-6">
@@ -125,7 +125,7 @@ export default function Footer() {
           </div>
 
           {/* Right Section - 35% */}
-          <div className="w-full md:w-[35%]">
+          <div className="w-full md:w-[35%] pl-0 lg:pl-20">
             <div className="grid grid-cols-2 gap-6 justify-end">
               {footerData.slice(2, 4).map((section, i) => (
                 <div key={i}>
