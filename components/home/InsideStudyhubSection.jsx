@@ -30,8 +30,32 @@ export default function StudyResources() {
     { name: "Practice", icon: FileText, delay: 1 },
   ];
 
-  const StepCircles = () => (
-    <div className="flex items-center justify-center gap-10 sm:gap-16 md:gap-20 mt-10 md:mt-20">
+  // Mobile step circles - no animation
+  const MobileStepCircles = () => (
+    <div className="flex items-center justify-center gap-8 sm:gap-16 md:gap-20 mt-10 md:mt-20 ">
+      {steps.map((step, index) => {
+        const IconComponent = step.icon;
+        return (
+          <div key={index} className="flex flex-col items-center ">
+            <div className="relative">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+                  <IconComponent size={14} className="text-blue-600" />
+                </div>
+              </div>
+              <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-lg">
+                {step.name}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  // Desktop step circles - with animation
+  const DesktopStepCircles = () => (
+    <div className="flex items-center gap-20 mt-20">
       {steps.map((step, index) => {
         const IconComponent = step.icon;
         return (
@@ -50,11 +74,11 @@ export default function StudyResources() {
           >
             <div className="relative">
               <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                   <IconComponent size={14} className="text-blue-600" />
                 </div>
               </div>
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-base md:text-lg shadow-lg">
+              <div className="w-28 h-28 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg">
                 {step.name}
               </div>
             </div>
@@ -103,12 +127,12 @@ export default function StudyResources() {
             ))}
           </div>
 
-          {/* Step circles below cards on mobile */}
-          <StepCircles />
+          {/* Step circles below cards on mobile - NO ANIMATION */}
+          <MobileStepCircles />
         </div>
 
         {/* ── DESKTOP (lg+): side-by-side layout ── */}
-        <div className="hidden lg:grid lg:grid-cols-2 items-start gap-12">
+        <div className="hidden lg:grid lg:grid-cols-2 items-start gap-4">
           {/* LEFT */}
           <div className="justify-self-start">
             <p className="text-blue-600 bg-blue-100 rounded-full text-sm font-semibold mb-4 uppercase tracking-wider inline-block px-4 py-1">
@@ -122,38 +146,8 @@ export default function StudyResources() {
               to help you prepare better for school and competitive exams.
             </p>
 
-            {/* Desktop step circles */}
-            <div className="flex items-center gap-20 mt-20">
-              {steps.map((step, index) => {
-                const IconComponent = step.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    className="flex flex-col items-center"
-                    animate={{ y: [20, 0, -40, 0, 20] }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "linear",
-                      times: [0, 0.25, 0.5, 0.75, 1],
-                      delay: step.delay,
-                    }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <div className="relative">
-                      <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
-                        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                          <IconComponent size={14} className="text-blue-600" />
-                        </div>
-                      </div>
-                      <div className="w-28 h-28 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg">
-                        {step.name}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+            {/* Desktop step circles - WITH ANIMATION */}
+            <DesktopStepCircles />
           </div>
 
           {/* RIGHT — 2×2 grid */}

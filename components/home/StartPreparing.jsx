@@ -95,7 +95,7 @@ export default function StartPreparing() {
       </div>
 
       {/* RIGHT SIDE DOTS — hide on very small screens */}
-      <div className="hidden sm:flex absolute right-4 md:right-6 top-24 flex-col gap-3">
+      <div className="hidden sm:flex absolute right-4 md:right-6 top-0 flex-col gap-3 z-999">
         <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
         <span className="w-5 h-5 bg-blue-500 rounded-full"></span>
         <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
@@ -112,16 +112,27 @@ export default function StartPreparing() {
         />
       </div>
 
-      {/* TOP CENTER DECORATIVE IMAGE */}
-      <div className="absolute left-1/2 -translate-x-1/2 -top-2 z-20">
+
+      <div className=" sm:hidden absolute -left-2 top-70 -translate-y-1/2 z-10">
         <Image
-          src="/images/prep/sp.png"
-          alt="decoration"
+          src="/images/home/red.png"
+          alt="left arrow"
           width={32}
           height={32}
-          className="w-8 h-8 md:w-40 md:h-40"
+          className="w-16 h-10 md:w-20 md:h-18 scale-x-[-1]"
         />
       </div>
+
+      {/* TOP CENTER DECORATIVE IMAGE */}
+     <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-2 z-20">
+  <Image
+    src="/images/prep/sp.png"
+    alt="decoration"
+    width={32}
+    height={32}
+    className="w-20 h-24 md:w-40 md:h-40"
+  />
+</div>
     </section>
   );
 }
