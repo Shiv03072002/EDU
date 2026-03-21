@@ -24,9 +24,8 @@ const data = [
 
 export default function StartPreparing() {
   return (
-    <section className="relative bg-gray-100 py-16 px-4 sm:px-6 md:px-10 overflow-hidden">
+    <section className="relative bg-gray-100 py-16 px-4 sm:px-6 md:px-10 ">
       <div className="max-w-7xl mx-auto">
-
         {/* TOP SECTION */}
         <div className="flex flex-col gap-6 sm:gap-8 md:flex-row md:items-center md:justify-between mb-16 md:mb-20">
           <div className="flex-shrink-0">
@@ -46,7 +45,7 @@ export default function StartPreparing() {
         </div>
 
         {/* CARDS CONTAINER */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-13 md:gap-0 border border-gray-200 ">
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-13 md:gap-0 border border-gray-200  ">
           {data.map((item, index) => (
             <div
               key={index}
@@ -95,12 +94,21 @@ export default function StartPreparing() {
       </div>
 
       {/* RIGHT SIDE DOTS — hide on very small screens */}
-      <div className="hidden sm:flex absolute right-4 md:right-6 top-0 flex-col gap-3 z-999">
-        <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-        <span className="w-5 h-5 bg-blue-500 rounded-full"></span>
-        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-      </div>
+      <div className="hidden sm:block absolute right-0 -top-40 w-[200px] h-full z-10 pointer-events-none overflow-hidden">
 
+  {/* Top small */}
+  <span className="absolute top-30 right-6 w-6 h-6 bg-blue-600 rounded-[70%_40%_55%_45%]" />
+
+  {/* Big middle */}
+  <span className="absolute top-40 -right-4 w-10 h-10 bg-blue-600 rounded-[70%_40%_55%_45%]" />
+
+  {/* Medium */}
+  <span className="absolute top-56 right-8 w-6 h-6 bg-blue-600 rounded-[70%_40%_55%_45%]" />
+
+  {/* Bottom small */}
+  <span className="absolute top-66 right-2 w-4 h-4 bg-blue-600 rounded-[70%_40%_55%_45%]" />
+
+</div>
       {/* LEFT DECORATIVE IMAGE */}
       <div className="hidden sm:block absolute -left-2 top-60 -translate-y-1/2 z-10">
         <Image
@@ -111,7 +119,6 @@ export default function StartPreparing() {
           className="w-8 h-8 md:w-20 md:h-18 scale-x-[-1]"
         />
       </div>
-
 
       <div className=" sm:hidden absolute -left-2 top-70 -translate-y-1/2 z-10">
         <Image
@@ -124,15 +131,15 @@ export default function StartPreparing() {
       </div>
 
       {/* TOP CENTER DECORATIVE IMAGE */}
-     <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-2 z-20">
-  <Image
-    src="/images/prep/sp.png"
-    alt="decoration"
-    width={32}
-    height={32}
-    className="w-20 h-24 md:w-40 md:h-40"
-  />
-</div>
+      <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-2 z-20">
+        <Image
+          src="/images/prep/sp.png"
+          alt="decoration"
+          width={32}
+          height={32}
+          className="w-20 h-24 md:w-40 md:h-40"
+        />
+      </div>
     </section>
   );
 }

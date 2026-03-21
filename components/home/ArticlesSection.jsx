@@ -64,7 +64,7 @@ export default function ArticlesSection() {
 
   return (
     <section className="relative py-12 lg:py-20 bg-white overflow-hidden">
-      <div className=" hidden md:block absolute -left-16 top-8 md:top-2 w-10 md:w-30 z-10">
+      <div className="  absolute -left-5 lg:-left-16 top-2 md:top-2 w-10 md:w-30 z-10">
         <motion.div>
           <Image
             src="/images/home/Component107.png"
@@ -76,29 +76,53 @@ export default function ArticlesSection() {
         </motion.div>
       </div>
 
-      {/* Decorative triangle top-right of heading area */}
-      <motion.div
-        className="hidden lg:block absolute top-16 right-[50%] opacity-60"
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      >
-        <div
-          className="w-0 h-0"
-          style={{
-            borderLeft: "20px solid transparent",
-            borderRight: "20px solid transparent",
-            borderBottom: "32px solid #d1d5db",
-          }}
-        />
-      </motion.div>
+     {/* Mobile version - smaller size */}
+<motion.div
+  className="absolute opacity-60 block lg:hidden"
+  style={{
+    top: "1rem",
+    right: "10%",
+  }}
+  animate={{ rotate: 360 }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "linear",
+  }}
+>
+  <div
+    className="w-0 h-0"
+    style={{
+      borderLeft: "8px solid transparent",
+      borderRight: "8px solid transparent",
+      borderBottom: "14px solid #d1d5db",
+    }}
+  />
+</motion.div>
+
+{/* Desktop version - original size and position */}
+<motion.div
+  className="absolute top-16 right-[50%] opacity-60 hidden lg:block"
+  animate={{ rotate: 360 }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "linear",
+  }}
+>
+  <div
+    className="w-0 h-0"
+    style={{
+      borderLeft: "20px solid transparent",
+      borderRight: "20px solid transparent",
+      borderBottom: "32px solid #d1d5db",
+    }}
+  />
+</motion.div>
       {/* 3x2 dots under the triangle */}
-      <div className="hidden lg:grid absolute top-40 right-[49%] grid-cols-3 gap-5 opacity-40">
+      <div className="grid absolute top-14 md:top-40 right-10 md:right-[49%]  grid-cols-3 gap-3 lg:gap-5 opacity-40">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className="w-2 h-2 bg-gray-400 rounded-full" />
+          <div key={i} className=" w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400 rounded-full" />
         ))}
       </div>
 
@@ -122,9 +146,9 @@ export default function ArticlesSection() {
       />
 
       {/* Bottom decorative images */}
-      <div className="hidden lg:block absolute bottom-16 right-56 w-72 h-40">
+      <div className="hidden lg:block absolute bottom-34 right-66 w-50 h-30">
         <img
-          src="/images/articles/hand.png"
+          src="/images/articles/hands.png"
           alt=""
           className="w-full h-full object-cover"
         />
@@ -305,17 +329,17 @@ export default function ArticlesSection() {
 
           {/* Article carousel */}
           <div>
-            <div className="relative rounded-xl overflow-hidden">
-              <div className="w-full h-48" style={checkerStyle(16)} />
+            <div className="relative rounded-xl ">
+              <div className="w-full h-56" style={checkerStyle(16)} />
               <button
                 onClick={prev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700"
+                className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-blue-600  flex items-center justify-center text-blue-600"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4 text-blue-600" />
               </button>
               <button
                 onClick={next}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-gray-700"
+                className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-blue-600 shadow-md flex items-center justify-center text-blue-600"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -333,22 +357,22 @@ export default function ArticlesSection() {
           </div>
 
           {/* News carousel */}
-          <div className="mt-9">
+          <div className="mt-8">
             <h3 className="text-lg font-bold mb-4 text-gray-900">
               Latest News
             </h3>
             <div className="flex gap-3 items-start">
               <div
-                className="w-24 h-16 rounded-lg flex-shrink-0"
+                className="w-24 h-20 rounded flex-shrink-0"
                 style={checkerStyle(10)}
               />
               <div>
-                <div className="text-xs text-gray-400 mb-1 font-semibold tracking-widest uppercase flex items-center gap-2">
+                <div className="text-xs text-gray-400 mb-3 font-semibold tracking-widest uppercase flex items-center gap-2">
                   <span>Exam Update</span>
                   <span className="text-gray-300">•</span>
                   <span>{news[currentNews].date}</span>
                 </div>
-                <p className="text-sm font-bold text-gray-900 leading-snug">
+                <p className="text-md font-bold text-gray-900 leading-snug">
                   {news[currentNews].title}
                 </p>
               </div>

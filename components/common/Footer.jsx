@@ -43,7 +43,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0F172A] text-[#CBD5E1] mt-20 md:mt-0">
+    <footer className="bg-[#0F172A] text-[#CBD5E1] ">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Mobile: Center Section at Top */}
         <div className="block md:hidden w-full mb-12">
