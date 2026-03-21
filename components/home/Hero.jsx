@@ -244,7 +244,7 @@ const HeroSection = () => {
       {/* STAR — mobile: small top-right, desktop: larger */}
       <div className=" absolute right-[6%] md:right-[20%] top-13 md:top-24 w-10 md:w-16 z-10">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-          <Image src="/images/home/Component 107.png" alt="star" width={80} height={80} className="w-full h-auto" />
+          <Image src="/images/home/Component107.png" alt="star" width={80} height={80} className="w-full h-auto" />
         </motion.div>
       </div>
 
@@ -254,27 +254,27 @@ const HeroSection = () => {
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Image src="/images/home/Component 105.png" alt="bulb" width={60} height={60} className="w-full h-auto" />
+        <Image src="/images/home/Component105.png" alt="bulb" width={60} height={60} className="w-full h-auto" />
       </motion.div>
 
       {/* GREEN SPIRAL — hidden on mobile, visible md+ */}
       <div className="hidden md:block absolute left-14 bottom-46 w-32 z-10">
-        <Image src="/images/home/Mask group (5).png" alt="green-spiral" width={80} height={80} className="w-full h-auto" />
+        <Image src="/images/home/green.png" alt="green-spiral" width={80} height={80} className="w-full h-auto" />
       </div>
 
       {/* RED ARROW — hidden on mobile, visible md+ */}
       <div className="hidden md:block absolute right-33 top-[46%] w-20 z-10">
-        <Image src="/images/home/Mask group (6).png" alt="red-arrow" width={80} height={80} className="w-full h-auto" />
+        <Image src="/images/home/red.png" alt="red-arrow" width={80} height={80} className="w-full h-auto" />
       </div>
 
       {/* Mobile-only green spiral — bottom-left, well below search */}
       <div className="block md:hidden absolute left-9 bottom-36 w-18 z-10">
-        <Image src="/images/home/Mask group (5).png" alt="green-spiral" width={80} height={80} className="w-full h-auto" />
+        <Image src="/images/home/green.png" alt="green-spiral" width={80} height={80} className="w-full h-auto" />
       </div>
 
       {/* Mobile-only red arrow — bottom-right, well below search */}
       <div className="block md:hidden absolute right-23 bottom-40 w-16 z-10">
-        <Image src="/images/home/Mask group (6).png" alt="red-arrow" width={80} height={80} className="w-full h-auto" />
+        <Image src="/images/home/red.png" alt="red-arrow" width={80} height={80} className="w-full h-auto" />
       </div>
 
       {/* Mobile-only right blue blob — strictly bottom-right corner */}
