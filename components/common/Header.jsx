@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, Search, Menu, X, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
-
+import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -146,31 +146,108 @@ export default function Header() {
                   )}
 
                   {/* Dropdown Menu */}
-                  {item.dropdown && openDropdown === index && (
-                    <div
-                      onMouseLeave={() => setOpenDropdown(null)}
-                      className={`absolute top-full left-0 mt-1 w-48 rounded-lg shadow-lg py-2 z-50 ${
-                        darkMode
-                          ? "bg-[#1A1A1A] border border-gray-700"
-                          : "bg-white border border-gray-100"
-                      }`}
-                    >
-                      {item.items.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href="#"
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            darkMode
-                              ? "text-gray-300 hover:text-[#2563EB] hover:bg-blue-950/30"
-                              : "text-[#475569] hover:text-[#2563EB] hover:bg-blue-50"
-                          }`}
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {subItem}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                 {item.dropdown && openDropdown === index && (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95, y: -5 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    exit={{ opacity: 0, scale: 0.95, y: -5 }}
+    transition={{ duration: 0.2, ease: "easeOut" }}
+    onMouseLeave={() => setOpenDropdown(null)}
+    className={`absolute top-full left-0 mt-2 min-w-[280px] rounded-xl shadow-2xl overflow-hidden z-50 backdrop-blur-sm ${
+      darkMode
+        ? "bg-[#0A0A0A]/95 border border-gray-800/50"
+        : "bg-white/95 border border-gray-200/50 backdrop-blur-sm"
+    }`}
+  >
+    {/* Animated gradient border */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    
+    
+    {/* Dropdown items with categories */}
+    <div className="py-2">
+      {item.items.map((subItem, subIndex) => (
+        <motion.div
+          key={subIndex}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: subIndex * 0.03 }}
+        >
+          <Link
+            href={subItem.href || "#"}
+            className={`group relative flex items-center gap-3 px-5 py-3 text-sm transition-all duration-200 overflow-hidden ${
+              darkMode
+                ? "text-gray-300 hover:text-white"
+                : "text-gray-600 hover:text-[#2563EB]"
+            }`}
+            onClick={() => setOpenDropdown(null)}
+          >
+            {/* Hover background animation */}
+            <div className={`absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${
+              darkMode ? "bg-blue-600/20" : "bg-blue-50"
+            }`} />
+            
+            {/* Icon or indicator */}
+            {subItem.icon ? (
+              <div className="relative z-10 w-5 h-5">
+                {subItem.icon}
+              </div>
+            ) : (
+              <div className={`relative z-10 w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                darkMode 
+                  ? "bg-gray-600 group-hover:bg-blue-500 group-hover:scale-150" 
+                  : "bg-gray-300 group-hover:bg-blue-500 group-hover:scale-150"
+              }`} />
+            )}
+            
+            {/* Content */}
+            <div className="relative z-10 flex-1">
+              <span className="font-medium">{subItem.title || subItem}</span>
+              {subItem.description && (
+                <p className={`text-xs mt-0.5 ${
+                  darkMode ? "text-gray-500 group-hover:text-gray-400" : "text-gray-400 group-hover:text-gray-500"
+                }`}>
+                  {subItem.description}
+                </p>
+              )}
+            </div>
+            
+            {/* Arrow indicator */}
+            <svg 
+              className={`relative z-10 w-3.5 h-3.5 transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${
+                darkMode ? "text-blue-500" : "text-blue-600"
+              }`}
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </motion.div>
+      ))}
+    </div>
+    
+    {/* Optional: Quick actions footer */}
+    <div className={`relative px-5 py-3 border-t flex items-center justify-between ${
+      darkMode ? "border-gray-800/50 bg-gray-900/30" : "border-gray-100 bg-gray-50/50"
+    }`}>
+      <span className={`text-xs ${darkMode ? "text-gray-500" : "text-gray-400"}`}>
+        Need help?
+      </span>
+      <Link
+        href="/support"
+        className={`text-xs font-medium transition-all duration-200 flex items-center gap-1 ${
+          darkMode ? "text-gray-400 hover:text-blue-500" : "text-gray-500 hover:text-blue-600"
+        }`}
+      >
+        Contact support
+        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </Link>
+    </div>
+  </motion.div>
+)}
                 </div>
               ))}
             </nav>

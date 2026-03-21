@@ -242,7 +242,7 @@ const HeroSection = () => {
           <div className="flex items-center gap-2">
             <Target className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb]" />
             <p
-              className={`text-sm sm:text-base ${darkMode ? "text-gray-400" : "text-[#475569]"}`}
+              className={`text-sm sm:text-base ${darkMode ? "text-white" : "text-[#475569]"}`}
             >
               Find resources for
             </p>

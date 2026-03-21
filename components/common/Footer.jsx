@@ -49,12 +49,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#181818] text-[#CBD5E1]">
-      <div className="max-w-7xl mx-auto px-6  py-16">
+    <footer className={`${darkMode ? "bg-[#181818]" : "bg-[#0F172A]"} ${
+    darkMode ? "text-gray-400" : "text-[#CBD5E1]"
+  }`}>
+      <div className="max-w-7xl mx-auto px-6 py-10  md:py-16">
         {/* Mobile: Center Section at Top */}
         <div className="block md:hidden w-full mb-12">
           <div className="">
-            <h2 className="text-5xl font-bold tracking-wider text-white">
+            <h2 className="text-4xl font-bold tracking-wider text-white">
               ExamWaliSite
             </h2>
             <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
