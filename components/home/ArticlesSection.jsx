@@ -148,7 +148,7 @@ export default function ArticlesSection() {
       {/* Bottom decorative images */}
       <div className="hidden lg:block absolute bottom-34 right-66 w-50 h-30">
         <img
-          src="/images/articles/hands.png"
+          src="/images/articles/Hands.png"
           alt=""
           className="w-full h-full object-cover"
         />
