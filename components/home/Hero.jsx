@@ -266,11 +266,11 @@ const HeroSection = () => {
 
         {/* H1 */}
         <h1
-          className={`font-['Sora'] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-tight capitalize px-2 ${
+          className={`max-w-3xl mx-auto font-['Sora'] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-tight capitalize px-2 ${
             darkMode ? "text-white" : "text-[#0f172a]"
           }`}
         >
-          Find The Best Study Resources For Every Exam
+          Find The Best Study Material For Every Exam
         </h1>
 
         {/* Subheading */}

@@ -52,7 +52,7 @@ export default function StartPreparing() {
                 darkMode ? "text-white" : "text-gray-900"
               }`}
             >
-              Start Preparing For Your Next Exam
+             Start Preparing for Your Upcoming Exam
             </h2>
           </div>
 

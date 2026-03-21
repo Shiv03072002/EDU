@@ -192,7 +192,7 @@ export default function ArticlesSection() {
                   darkMode ? "text-white" : "text-gray-900"
                 }`}
               >
-                Helpful Guides To Boost Your Exam Preparation
+               Strategy to Score High in Your Exam
               </h2>
             </div>
             <div className="pt-2 pl-8">
@@ -329,7 +329,7 @@ export default function ArticlesSection() {
                   darkMode ? "text-white" : "text-gray-900"
                 }`}
               >
-                Helpful Guides To Boost Your Exam Preparation
+               Strategy to Score High in Your Exam
               </h2>
               <p
                 className={`text-sm max-w-xs pt-1 ${
@@ -445,7 +445,7 @@ export default function ArticlesSection() {
                 darkMode ? "text-white" : "text-gray-900"
               }`}
             >
-              Helpful Guides To Boost Your Exam Preparation
+             Strategy to Score High in Your Exam
             </h2>
             <p
               className={`text-sm leading-relaxed ${

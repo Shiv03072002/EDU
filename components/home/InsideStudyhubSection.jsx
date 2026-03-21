@@ -27,7 +27,7 @@ export default function StudyResources() {
   ];
 
   const steps = [
-    { name: "Discover", icon: Search, delay: 0 },
+    { name: "Learn", icon: Search, delay: 0 },
     { name: "Prepare", icon: BookOpen, delay: 0.5 },
     { name: "Practice", icon: FileText, delay: 1 },
   ];
@@ -114,7 +114,7 @@ export default function StudyResources() {
                 : "bg-blue-100 text-[#2563EB]"
             }`}
           >
-            Inside Studyhub
+            Inside Examwalisite
           </p>
           <h2
             className={`text-2xl sm:text-3xl font-bold leading-tight mb-3 max-w-sm ${
@@ -128,8 +128,8 @@ export default function StudyResources() {
               darkMode ? "text-gray-400" : "text-gray-600"
             }`}
           >
-            Explore different types of study materials available on our platform
-            to help you prepare better for school and competitive exams.
+            Checkout Premium study materials available on our platform
+To boost up your Exam Preparation
           </p>
 
           {/* Cards — single column on mobile, 2-col on sm */}
@@ -186,7 +186,7 @@ export default function StudyResources() {
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >
-              Inside Studyhub
+             Inside Examwalisite
             </p>
             <h2
               className={`text-4xl md:text-5xl font-bold leading-tight mb-4 max-w-xl ${
@@ -200,9 +200,8 @@ export default function StudyResources() {
                 darkMode ? "text-gray-400" : "text-gray-600"
               }`}
             >
-              Explore different types of study materials available on our
-              platform to help you prepare better for school and competitive
-              exams.
+              Checkout Premium study materials available on our platform
+To boost up your Exam Preparation
             </p>
 
             {/* Desktop step circles - WITH ANIMATION */}

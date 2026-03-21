@@ -9,10 +9,10 @@ export default function Footer() {
     {
       title: "Explore",
       links: [
-        "Study Resources",
-        "Exam Preparation",
-        "Study Guides",
-        "Latest Articles",
+        "Home",
+        "Boards",
+        "Quizzes",
+        "Blog",
         "Education News",
       ],
     },
@@ -50,12 +50,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#181818] text-[#CBD5E1]">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6  py-16">
         {/* Mobile: Center Section at Top */}
         <div className="block md:hidden w-full mb-12">
           <div className="">
             <h2 className="text-5xl font-bold tracking-wider text-white">
-              STUDYHUB
+              ExamWaliSite
             </h2>
             <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
               We help students discover the best study resources. Get the
@@ -116,7 +116,7 @@ export default function Footer() {
           <div className="hidden md:block md:w-[30%]">
             <div className="text-center">
               <h2 className="text-5xl font-bold tracking-wider text-white">
-                STUDYHUB
+                ExamWaliSite
               </h2>
               <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
                 We help students discover the best study resources. Get the
@@ -172,7 +172,7 @@ export default function Footer() {
         <div className="border-t border-gray-700/50 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-[#CBD5E1]">
-              © 2026 StudyHub. All rights reserved.
+              © 2026 ExamWaliSite. All rights reserved.
             </p>
           </div>
         </div>

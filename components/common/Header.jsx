@@ -50,7 +50,7 @@ export default function Header() {
       name: "Exams",
       dropdown: true,
       href: "#",
-      items: ["JEE", "NEET", "UPSC", "Banking"],
+      items: ["CUET UG", "NEET", "JEE", "CLASS 12"],
     },
     {
       name: "Study Materials",
@@ -101,7 +101,7 @@ export default function Header() {
                       : "text-gray-900 hover:text-[#2563EB]"
                   }`}
                 >
-                  STUDYHUB
+                  ExamWaliSite
                 </h1>
               </Link>
             </div>
@@ -380,7 +380,7 @@ export default function Header() {
             }`}
           >
             <p className={`text-xs text-center ${darkMode ? "text-gray-500" : "text-[#475569]"}`}>
-              © 2024 STUDYHUB. All rights reserved.
+              © 2024 ExamWaliSite. All rights reserved.
             </p>
           </div>
         </div>
