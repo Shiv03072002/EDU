@@ -91,16 +91,18 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
   const visible = showAll ? items : items.slice(0, 6);
 
   return (
-    <div className={`rounded-xl overflow-hidden border ${
-      darkMode ? "border-gray-800 bg-[#1A1A1A]" : "border-gray-200 bg-white"
-    }`}>
+    <div
+      className={`rounded-xl overflow-hidden border ${
+        darkMode ? "border-gray-800 bg-[#1A1A1A]" : "border-gray-200 bg-white"
+      }`}
+    >
       <button
         onClick={onToggle}
         className={`w-full flex items-center justify-between px-4 py-3.5 font-semibold text-sm transition-colors duration-200 ${
-          isOpen 
-            ? "bg-blue-600 text-white" 
-            : darkMode 
-              ? "bg-[#1A1A1A] text-gray-200" 
+          isOpen
+            ? "bg-[#2563EB] text-white"
+            : darkMode
+              ? "bg-[#1A1A1A] text-gray-200"
               : "bg-white text-gray-800"
         }`}
       >
@@ -113,11 +115,15 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
       </button>
 
       {isOpen && (
-        <div className={`p-3 ${darkMode ? "bg-[#1A1A1A]" : "bg-white"} border-t ${
-          darkMode ? "border-gray-800" : "border-gray-100"
-        }`}>
+        <div
+          className={`p-3 ${darkMode ? "bg-[#111111]" : "bg-white"} border-t ${
+            darkMode ? "border-gray-800" : "border-gray-100"
+          }`}
+        >
           {items.length === 0 ? (
-            <p className={`text-sm text-center py-4 ${darkMode ? "text-gray-500" : "text-gray-400"}`}>
+            <p
+              className={`text-sm text-center py-4 ${darkMode ? "text-gray-500" : "text-gray-400"}`}
+            >
               No resources yet.
             </p>
           ) : (
@@ -128,37 +134,42 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
                     key={i}
                     className={`group flex flex-col items-start gap-2 p-6 rounded-xl border transition-all duration-200 cursor-pointer ${
                       darkMode
-                        ? "border-gray-800 hover:border-blue-700 hover:bg-blue-950/30"
+                        ? "bg-[#181818] border-gray-800 hover:border-blue-700 hover:bg-blue-950/30"
                         : "border-gray-100 hover:border-blue-200 hover:bg-blue-50"
                     }`}
                   >
-                    <div className={`p-2 rounded-lg transition-all duration-200 ${
-                      darkMode
-                        ? "bg-gray-800 group-hover:bg-blue-600"
-                        : "bg-gray-100 group-hover:bg-blue-500"
-                    }`}>
-                      <FileText className={`w-4 h-4 transition-all duration-200 ${
+                    <div
+                      className={`p-2 rounded-lg transition-all duration-200 ${
                         darkMode
-                          ? "text-gray-400 group-hover:text-white"
-                          : "text-gray-500 group-hover:text-white"
-                      }`} />
+                          ? "bg-[#111111]  group-hover:bg-[#2563EB]"
+                          : "bg-gray-100 group-hover:bg-blue-500"
+                      }`}
+                    >
+                      <FileText
+                        className={`w-4 h-4 transition-all duration-200 ${
+                          darkMode
+                            ? "text-white group-hover:text-white"
+                            : "text-gray-500 group-hover:text-white"
+                        }`}
+                      />
                     </div>
-                    <p className={`text-xs font-semibold leading-snug mt-4  ${
-                      darkMode ? "text-gray-300" : "text-gray-800"
-                    }`}>
+                    <p
+                      className={`text-xs font-semibold leading-snug mt-2 ${
+                        darkMode ? "text-gray-300" : "text-gray-800"
+                      }`}
+                    >
                       {card.title}
                     </p>
                   </div>
                 ))}
               </div>
-
               {!showAll && items.length > 6 && (
                 <button
                   onClick={() => setShowAll(true)}
                   className={`w-full mt-3 py-2.5 rounded-md border text-sm font-medium transition-colors duration-200 ${
                     darkMode
                       ? " bg-white text-gray-800 hover:bg-blue-950/50"
-                      : "border-blue-300 text-blue-600 hover:bg-blue-50"
+                      : "border-blue-300 text-[#2563EB] hover:bg-blue-50"
                   }`}
                 >
                   Load More
@@ -182,9 +193,11 @@ export default function ResourcesSection() {
   };
 
   return (
-    <section className={`relative py-12 md:py-16 px-4 sm:px-6 md:px-10 overflow-hidden ${
-      darkMode ? "bg-[#0A0A0A]" : "bg-[#ffffff]"
-    }`}>
+    <section
+      className={`relative py-12 md:py-16 px-4 sm:px-6 md:px-10 overflow-hidden ${
+        darkMode ? "bg-[#0A0A0A]" : "bg-[#ffffff]"
+      }`}
+    >
       {/* Decorative images — desktop only */}
       <motion.img
         src="/images/resources/arrow.png"
@@ -212,21 +225,27 @@ export default function ResourcesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="md:text-center mb-6 md:mb-8">
-          <div className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
-  darkMode
-    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
-    : "bg-blue-100 text-blue-600"
-}`}>
-  DISCOVER RESOURCES
-</div>
-          <h1 className={`text-2xl sm:text-3xl md:text-[42px] font-bold mb-3 md:mb-4 leading-tight px-2 ${
-            darkMode ? "text-white" : "text-gray-900"
-          }`}>
+          <div
+            className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
+              darkMode
+                ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                : "bg-blue-100 text-[#2563EB]"
+            }`}
+          >
+            DISCOVER RESOURCES
+          </div>
+          <h1
+            className={`text-2xl sm:text-3xl md:text-[42px] font-bold mb-3 md:mb-4 leading-tight px-2 ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             All The Study Resources You Need In One Place
           </h1>
-          <p className={`text-sm sm:text-base max-w-3xl mx-auto ${
-            darkMode ? "text-gray-400" : "text-gray-600"
-          }`}>
+          <p
+            className={`text-sm sm:text-base max-w-3xl mx-auto ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
             Explore curated notes, NCERT books, mock tests, question papers, and
             exam preparation guides for classes, boards, and competitive exams
             like NEET, JEE, and CUET.
@@ -255,7 +274,7 @@ export default function ResourcesSection() {
                 onClick={() => setActive(item)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
                   active === item
-                    ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+                    ? "bg-[#2563EB] text-white border-blue-600 hover:bg-blue-700"
                     : darkMode
                       ? "text-gray-300 border-gray-700 hover:border-blue-600 bg-[#1A1A1A] hover:bg-gray-800"
                       : "text-gray-700 border-gray-300 hover:border-gray-400 bg-gray-100"
@@ -277,33 +296,43 @@ export default function ResourcesSection() {
                 }`}
               >
                 <div className="flex justify-between items-start mb-4">
-                  <div className={`p-2 rounded-lg transition-all duration-300 ${
-                    darkMode
-                      ? "bg-gray-800 border border-gray-700 group-hover:bg-blue-600 group-hover:border-blue-500"
-                      : "bg-gray-100 border border-gray-200 group-hover:bg-blue-500 group-hover:border-blue-600"
-                  }`}>
-                    <FileText className={`w-5 h-5 transition-all duration-300 ${
+                  <div
+                    className={`p-2 rounded-lg transition-all duration-300 ${
                       darkMode
-                        ? "text-gray-400 group-hover:text-white"
-                        : "text-gray-600 group-hover:text-white"
-                    }`} />
+                        ? "bg-gray-800 border border-gray-700 group-hover:bg-[#2563EB] group-hover:border-blue-500"
+                        : "bg-gray-100 border border-gray-200 group-hover:bg-blue-500 group-hover:border-blue-600"
+                    }`}
+                  >
+                    <FileText
+                      className={`w-5 h-5 transition-all duration-300 ${
+                        darkMode
+                          ? "text-gray-400 group-hover:text-white"
+                          : "text-gray-600 group-hover:text-white"
+                      }`}
+                    />
                   </div>
-                  <ArrowUpRight className={`w-4 h-4 transition-all duration-300 ${
-                    darkMode
-                      ? "text-gray-600 group-hover:text-blue-400 group-hover:rotate-45"
-                      : "text-gray-400 group-hover:text-blue-600 group-hover:rotate-45"
-                  }`} />
+                  <ArrowUpRight
+                    className={`w-4 h-4 transition-all duration-300 ${
+                      darkMode
+                        ? "text-gray-600 group-hover:text-blue-400 group-hover:rotate-45"
+                        : "text-gray-400 group-hover:text-[#2563EB] group-hover:rotate-45"
+                    }`}
+                  />
                 </div>
-               <h3 className={`font-semibold text-lg mb-2 transition-colors duration-300 ${
-  darkMode 
-    ? "text-white group-hover:text-blue-600" 
-    : "text-gray-900 group-hover:text-blue-600"
-}`}>
-  {card.title}
-</h3>
-                <p className={`text-sm leading-relaxed ${
-                  darkMode ? "text-gray-400" : "text-gray-600"
-                }`}>
+                <h3
+                  className={`font-semibold text-lg mb-2 transition-colors duration-300 ${
+                    darkMode
+                      ? "text-white group-hover:text-[#2563EB]"
+                      : "text-gray-900 group-hover:text-[#2563EB]"
+                  }`}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  className={`text-sm leading-relaxed ${
+                    darkMode ? "text-gray-400" : "text-gray-600"
+                  }`}
+                >
                   {card.desc}
                 </p>
               </div>

@@ -34,27 +34,33 @@ export default function PromoteSection() {
   };
 
   return (
-    <section className={`relative w-full overflow-hidden py-14 px-6 md:px-12 lg:px-20 ${
-      darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
-    }`}>
+    <section
+      className={`relative w-full overflow-hidden py-14 px-6 md:px-12 lg:px-20 ${
+        darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
+      }`}
+    >
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
         {/* ── LEFT COLUMN (50%) – HIDDEN ON MOBILE ── */}
         <div className="hidden lg:flex flex-col gap-6">
           {/* Badge */}
           <div className="w-fit">
-           <p className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
-  darkMode
-    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
-    : "bg-blue-100 text-blue-600"
-}`}>
-  Partner With Us
-</p>
+            <p
+              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+                darkMode
+                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  : "bg-blue-100 text-[#2563EB]"
+              }`}
+            >
+              Partner With Us
+            </p>
           </div>
 
           {/* Heading */}
-          <h2 className={`font-black text-[2.6rem] leading-[1.15] max-w-lg ${
-            darkMode ? "text-white" : "text-gray-950"
-          }`}>
+          <h2
+            className={`font-black text-[2.6rem] leading-[1.15] max-w-lg ${
+              darkMode ? "text-white" : "text-gray-950"
+            }`}
+          >
             Promote Your Learning Platform To Thousands Of Students
           </h2>
 
@@ -63,7 +69,7 @@ export default function PromoteSection() {
             <div className="grid grid-cols-2 gap-6">
               {/* Large left image */}
               <div
-                className="relative rounded-2xl overflow-hidden"
+                className="relative rounded-lg overflow-hidden"
                 style={{ height: "520px" }}
               >
                 <img
@@ -76,7 +82,7 @@ export default function PromoteSection() {
               {/* Right column — two stacked images */}
               <div className="flex flex-col gap-3">
                 <div
-                  className="rounded-2xl overflow-hidden"
+                  className="rounded-lg overflow-hidden"
                   style={{ height: "250px" }}
                 >
                   <img
@@ -86,7 +92,7 @@ export default function PromoteSection() {
                   />
                 </div>
                 <div
-                  className="rounded-2xl overflow-hidden"
+                  className="rounded-lg overflow-hidden"
                   style={{ height: "250px" }}
                 >
                   <img
@@ -99,21 +105,21 @@ export default function PromoteSection() {
             </div>
 
             {/* Play button */}
-            <button 
+            <button
               className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-18 h-18 rounded-full flex items-center justify-center z-50 ${
                 darkMode ? "bg-[#1A1A1A]" : "bg-white"
               }`}
               aria-label="Play video"
             >
               <motion.svg
-                className="w-5 h-5 text-blue-600 ml-1"
+                className="w-8 h-8 text-[#2563EB] ml-1"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 animate={{ rotate: 360 }}
                 transition={{
                   repeat: Infinity,
                   duration: 6,
-                  ease: "linear"
+                  ease: "linear",
                 }}
               >
                 <path d="M6 4.75v14.5a.75.75 0 0 0 1.148.634l11-7.25a.75.75 0 0 0 0-1.268l-11-7.25A.75.75 0 0 0 6 4.75z" />
@@ -190,14 +196,16 @@ export default function PromoteSection() {
           {/* Mobile Header with Badge and Images */}
           <div className="lg:hidden flex items-center justify-between w-full mb-2">
             {/* Badge */}
-            <p className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
-  darkMode
-    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
-    : "bg-blue-100 text-blue-600"
-}`}>
-  Partner With Us
-</p>
-            
+            <p
+              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+                darkMode
+                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  : "bg-blue-100 text-[#2563EB]"
+              }`}
+            >
+              Partner With Us
+            </p>
+
             {/* Images container */}
             <div className="flex items-center justify-between gap-6">
               <img
@@ -219,21 +227,27 @@ export default function PromoteSection() {
           </div>
 
           {/* Heading - SHOWN ON MOBILE (smaller size) */}
-          <h2 className={`lg:hidden font-black text-[2rem] md:text-[2.4rem] leading-tight max-w-2xl mb-2 ${
-            darkMode ? "text-white" : "text-gray-950"
-          }`}>
+          <h2
+            className={`lg:hidden font-black text-3xl md:text-5xl leading-tight max-w-2xl mb-2 ${
+              darkMode ? "text-white" : "text-gray-950"
+            }`}
+          >
             Promote Your Learning Platform To Thousands Of Students
           </h2>
 
-          <p className={`text-md leading-relaxed max-w-120 mt-2 lg:mt-8 ${
-            darkMode ? "text-gray-400" : "text-gray-600"
-          }`}>
+          <p
+            className={`text-md leading-relaxed max-w-120 mt-2 lg:mt-8 ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
             Want to promote your courses, study materials, or learning platform?
           </p>
-          
-          <p className={`font-bold text-[15px] leading-relaxed max-w-120 ${
-            darkMode ? "text-gray-200" : "text-gray-900"
-          }`}>
+
+          <p
+            className={`font-bold text-[15px] leading-relaxed max-w-120 ${
+              darkMode ? "text-gray-200" : "text-gray-900"
+            }`}
+          >
             Submit your platform and connect with students looking for the best
             resources for their exams and studies.
           </p>
@@ -242,9 +256,11 @@ export default function PromoteSection() {
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label className={`text-[15px] font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>
+                <label
+                  className={`text-[15px] font-medium ${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
                   Platform Name
                 </label>
                 <input
@@ -260,9 +276,11 @@ export default function PromoteSection() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className={`text-[15px] font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>
+                <label
+                  className={`text-[15px] font-medium ${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
                   Website URL
                 </label>
                 <input
@@ -282,9 +300,11 @@ export default function PromoteSection() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label className={`text-[15px] font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>
+                <label
+                  className={`text-[15px] font-medium ${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
                   Contact Email
                 </label>
                 <input
@@ -301,9 +321,11 @@ export default function PromoteSection() {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className={`text-[15px] font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>
+                <label
+                  className={`text-[15px] font-medium ${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
                   Promotion Type
                 </label>
                 <div className="relative">
@@ -347,9 +369,11 @@ export default function PromoteSection() {
 
             {/* Row 3 — full width */}
             <div className="flex flex-col gap-1">
-              <label className={`text-[15px] font-medium ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}>
+              <label
+                className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Target Exams / Classes
               </label>
               <input
@@ -367,9 +391,11 @@ export default function PromoteSection() {
 
             {/* Row 4 — textarea */}
             <div className="flex flex-col gap-1">
-              <label className={`text-[15px] font-medium ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}>
+              <label
+                className={`text-[15px] font-medium ${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Message
               </label>
               <textarea

@@ -22,9 +22,11 @@ const HeroSection = () => {
   const colors = ["#16a34a", "#eb248b", "#ebe826", "#2563eb"];
 
   return (
-    <section className={`relative w-full h-174 md:h-182 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden ${
-      darkMode ? "bg-[#0A0A0A]" : "bg-white"
-    }`}>
+    <section
+      className={`relative w-full h-174 md:h-182 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden ${
+        darkMode ? "bg-[#0A0A0A]" : "bg-white"
+      }`}
+    >
       {/* ─── DECORATIVE SHAPES ─── */}
 
       {/* LEFT blue shape — hidden on mobile, visible md+ */}
@@ -155,12 +157,16 @@ const HeroSection = () => {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className={`border rounded px-5 py-3 ${
-          darkMode 
-            ? "bg-[#1A1A1A] border-gray-700" 
-            : "bg-white border-[#e2e8f0]"
-        }`}>
-          <span className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}>
+        <div
+          className={`border rounded-md px-5 py-3 ${
+            darkMode
+              ? "bg-[#1A1A1A] border-gray-800"
+              : "bg-white border-[#e2e8f0]"
+          }`}
+        >
+          <span
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+          >
             NEET Notes
           </span>
         </div>
@@ -172,12 +178,16 @@ const HeroSection = () => {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className={`border rounded px-5 py-3 ${
-          darkMode 
-            ? "bg-[#1A1A1A] border-gray-700" 
-            : "bg-white border-[#e2e8f0]"
-        }`}>
-          <span className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}>
+        <div
+          className={`border rounded-md px-5 py-3 ${
+            darkMode
+              ? "bg-[#1A1A1A] border-gray-800"
+              : "bg-white border-[#e2e8f0]"
+          }`}
+        >
+          <span
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+          >
             JEE Mock Test
           </span>
         </div>
@@ -189,12 +199,16 @@ const HeroSection = () => {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className={`border rounded px-5 py-3 ${
-          darkMode 
-            ? "bg-[#1A1A1A] border-gray-700" 
-            : "bg-white border-[#e2e8f0]"
-        }`}>
-          <span className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}>
+        <div
+          className={`border rounded-md px-5 py-3 ${
+            darkMode
+              ? "bg-[#1A1A1A] border-gray-800"
+              : "bg-white border-[#e2e8f0]"
+          }`}
+        >
+          <span
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+          >
             CBSE Books
           </span>
         </div>
@@ -206,12 +220,16 @@ const HeroSection = () => {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className={`border rounded px-5 py-3 ${
-          darkMode 
-            ? "bg-[#1A1A1A] border-gray-700" 
-            : "bg-white border-[#e2e8f0]"
-        }`}>
-          <span className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}>
+        <div
+          className={`border rounded-md px-5 py-3 ${
+            darkMode
+              ? "bg-[#1A1A1A] border-gray-800"
+              : "bg-white border-[#e2e8f0]"
+          }`}
+        >
+          <span
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+          >
             Class 10 Notes
           </span>
         </div>
@@ -223,7 +241,9 @@ const HeroSection = () => {
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-6 md:mb-12">
           <div className="flex items-center gap-2">
             <Target className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb]" />
-            <p className={`text-sm sm:text-base ${darkMode ? "text-gray-400" : "text-[#475569]"}`}>
+            <p
+              className={`text-sm sm:text-base ${darkMode ? "text-gray-400" : "text-[#475569]"}`}
+            >
               Find resources for
             </p>
           </div>
@@ -245,16 +265,20 @@ const HeroSection = () => {
         </div>
 
         {/* H1 */}
-        <h1 className={`font-['Sora'] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-tight capitalize px-2 ${
-          darkMode ? "text-white" : "text-[#0f172a]"
-        }`}>
+        <h1
+          className={`font-['Sora'] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-tight capitalize px-2 ${
+            darkMode ? "text-white" : "text-[#0f172a]"
+          }`}
+        >
           Find The Best Study Resources For Every Exam
         </h1>
 
         {/* Subheading */}
-        <p className={`text-base sm:text-lg md:text-xl text-center max-w-2xl mx-auto mt-4 md:mt-6 font-['Inter'] leading-relaxed px-2 ${
-          darkMode ? "text-gray-400" : "text-[#475569]"
-        }`}>
+        <p
+          className={`text-base sm:text-lg md:text-xl text-center max-w-2xl mx-auto mt-4 md:mt-6 font-['Inter'] leading-relaxed px-2 ${
+            darkMode ? "text-gray-400" : "text-[#475569]"
+          }`}
+        >
           Access study materials, notes, books, and preparation resources for
           CBSE, NEET, JEE, CUET and more.
         </p>
@@ -272,9 +296,11 @@ const HeroSection = () => {
                   : "bg-[#f8fafc] border-[#e2e8f0] text-[#64748b]"
               }`}
             />
-            <Search className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 ${
-              darkMode ? "text-gray-500" : "text-[#94a3b8]"
-            }`} />
+            <Search
+              className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 ${
+                darkMode ? "text-gray-500" : "text-[#94a3b8]"
+              }`}
+            />
 
             {/* Button with left-to-right hover animation */}
             <button className="absolute right-2 top-1/2 -translate-y-1/2 text-white font-semibold text-sm px-6 py-3 rounded-md transition-all duration-300 overflow-hidden group">
@@ -296,9 +322,11 @@ const HeroSection = () => {
                     : "bg-white border-[#e2e8f0] text-[#64748b]"
                 }`}
               />
-              <Search className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${
-                darkMode ? "text-gray-500" : "text-[#94a3b8]"
-              }`} />
+              <Search
+                className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 ${
+                  darkMode ? "text-gray-500" : "text-[#94a3b8]"
+                }`}
+              />
             </div>
             <div className="flex justify-center">
               <button className="inline-flex w-fit shrink-0 bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-sm font-semibold px-6 py-3 rounded-md whitespace-nowrap">
@@ -329,25 +357,41 @@ const HeroSection = () => {
       <div className="absolute bottom-6 sm:bottom-10 left-0 right-0 z-10 flex justify-center">
         <div className="relative flex flex-col items-center justify-center">
           {/* Circle - positioned to not overlap with search */}
+          {/* Desktop gradient - hidden on mobile */}
           <div
-  className="absolute -top-14 lg:-top-12 left-1/2 -translate-x-1/2 w-200 h-300 sm:w-[500px] md:w-[800px] sm:h-[500px] md:h-[800px] rounded-full -z-10"
-  style={{
-    background: darkMode
-      ? "linear-gradient(180deg, #2563EBD9 2%, #11111100 17%)"
-      : "linear-gradient(180deg, #2563EB26 0%, #F8FAFC00 20%)",
-  }}
-/>
+            className="hidden sm:block absolute -top-14 lg:-top-12 left-1/2 -translate-x-1/2 w-200 h-300 sm:w-[500px] md:w-[800px] sm:h-[500px] md:h-[800px] rounded-full -z-10"
+            style={{
+              background: darkMode
+                ? "linear-gradient(180deg, #2563EBD9 2%, #11111100 17%)"
+                : "linear-gradient(180deg, #2563EB26 0%, #F8FAFC00 20%)",
+            }}
+          />
+
+          {/* Mobile gradient - visible only on mobile */}
+          <div
+            className="sm:hidden absolute -top-14 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full -z-10"
+            style={{
+              background: darkMode
+                ? "linear-gradient(180deg, #2563EBD9 0%, #11111100 15%)"
+                : "linear-gradient(180deg, #3b82f640 0%, #F8FAFC00 25%)",
+            }}
+          />
           <motion.div
             className="flex flex-col items-center gap-1.5"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ArrowDown size={20} className={`md:w-8 md:h-8 ${
-              darkMode ? "text-gray-400" : "text-gray-400"
-            }`} />
-            <span className={`text-sm md:text-base font-medium tracking-wide ${
-              darkMode ? "text-gray-400" : "text-gray-400"
-            }`}>
+            <ArrowDown
+              size={20}
+              className={`md:w-8 md:h-8 ${
+                darkMode ? "text-gray-400" : "text-gray-400"
+              }`}
+            />
+            <span
+              className={`text-sm md:text-base font-medium tracking-wide ${
+                darkMode ? "text-gray-400" : "text-gray-400"
+              }`}
+            >
               Explore More
             </span>
           </motion.div>
