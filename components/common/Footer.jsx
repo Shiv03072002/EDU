@@ -74,7 +74,7 @@ export default function Footer() {
                     : "bg-white border-gray-200 text-gray-800"
                 } focus:border-[#2563EB]`}
               />
-              <button className="absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
+              <button className=" hidden absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
                 <span className="absolute inset-0 bg-[#2563EB] transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0"></span>
                 <span className="absolute inset-0 bg-[#1d4ed8] transition-transform duration-300 transform translate-x-0 group-hover:translate-x-full"></span>
                 <span className="relative z-10 flex items-center justify-center w-full h-full">Subscribe</span>
@@ -135,9 +135,9 @@ export default function Footer() {
                       : "bg-white border-gray-200 text-gray-800"
                   } focus:border-[#2563EB]`}
                 />
-                <button className="absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
-                  <span className="absolute inset-0 bg-[#2563EB] transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0"></span>
-                  <span className="absolute inset-0 bg-[#1d4ed8] transition-transform duration-300 transform translate-x-0 group-hover:translate-x-full"></span>
+                <button className="  absolute right-1 top-1 bottom-1 w-[120px] text-white font-semibold text-base rounded-md overflow-hidden group">
+                  <span className="absolute inset-0  bg-[#1d4ed8]  transition-transform duration-300 transform -translate-x-full group-hover:translate-x-0"></span>
+                  <span className="absolute inset-0 bg-[#2563EB] transition-transform duration-300 transform translate-x-0 group-hover:translate-x-full"></span>
                   <span className="relative z-10 flex items-center justify-center w-full h-full">Subscribe</span>
                 </button>
               </div>

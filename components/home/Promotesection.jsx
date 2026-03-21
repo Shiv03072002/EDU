@@ -42,13 +42,13 @@ export default function PromoteSection() {
         <div className="hidden lg:flex flex-col gap-6">
           {/* Badge */}
           <div className="w-fit">
-            <p className={`text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full whitespace-nowrap ${
-              darkMode
-                ? "bg-blue-950/50 text-blue-400"
-                : "bg-blue-100 text-blue-600"
-            }`}>
-              Partner With Us
-            </p>
+           <p className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  Partner With Us
+</p>
           </div>
 
           {/* Heading */}
@@ -190,13 +190,13 @@ export default function PromoteSection() {
           {/* Mobile Header with Badge and Images */}
           <div className="lg:hidden flex items-center justify-between w-full mb-2">
             {/* Badge */}
-            <p className={`text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full ${
-              darkMode
-                ? "bg-blue-950/50 text-blue-400"
-                : "bg-blue-100 text-blue-600"
-            }`}>
-              Partner With Us
-            </p>
+            <p className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  Partner With Us
+</p>
             
             {/* Images container */}
             <div className="flex items-center justify-between gap-6">
@@ -389,7 +389,7 @@ export default function PromoteSection() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="inline-flex w-fit bg-[#2563EB] text-white font-semibold text-[15px] px-10 py-4 rounded-lg transition-all duration-300 relative overflow-hidden group mt-1"
+              className="inline-flex w-fit bg-[#2563EB] text-white font-semibold text-[15px] px-4 py-3 rounded-lg transition-all duration-300 relative overflow-hidden group mt-1"
             >
               <span className="relative z-10">Submit Promotion Request</span>
               <span className="absolute inset-0 bg-[#1d4ed8] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>

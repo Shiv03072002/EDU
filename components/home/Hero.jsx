@@ -315,7 +315,7 @@ const HeroSection = () => {
               key={tag}
               className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors duration-150 ${
                 darkMode
-                  ? "border-gray-700 text-gray-300 bg-[#1A1A1A] hover:bg-gray-800 hover:border-gray-600"
+                  ? "border-gray-700 text-gray-300 bg-[#1A1A1A] hover:bg-gray-800 hover:border-blue-600"
                   : "border-[#cbd5e1] text-[#334155] bg-white hover:bg-[#f1f5f9] hover:border-[#94a3b8]"
               }`}
             >

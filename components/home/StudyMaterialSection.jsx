@@ -212,13 +212,13 @@ export default function ResourcesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="md:text-center mb-6 md:mb-8">
-          <div className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 ${
-            darkMode
-              ? "bg-blue-950/50 text-blue-400"
-              : "bg-blue-100 text-blue-600"
-          }`}>
-            DISCOVER RESOURCES
-          </div>
+          <div className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  DISCOVER RESOURCES
+</div>
           <h1 className={`text-2xl sm:text-3xl md:text-[42px] font-bold mb-3 md:mb-4 leading-tight px-2 ${
             darkMode ? "text-white" : "text-gray-900"
           }`}>
@@ -257,7 +257,7 @@ export default function ResourcesSection() {
                   active === item
                     ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
                     : darkMode
-                      ? "text-gray-300 border-gray-700 hover:border-gray-600 bg-[#1A1A1A] hover:bg-gray-800"
+                      ? "text-gray-300 border-gray-700 hover:border-blue-600 bg-[#1A1A1A] hover:bg-gray-800"
                       : "text-gray-700 border-gray-300 hover:border-gray-400 bg-gray-100"
                 }`}
               >
@@ -272,7 +272,7 @@ export default function ResourcesSection() {
                 key={index}
                 className={`group border rounded-2xl p-5 text-left transition-all duration-300 cursor-pointer ${
                   darkMode
-                    ? "bg-[#1A1A1A] border-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-blue-900/20"
+                    ? "bg-[#1A1A1A] border-gray-800 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-900/40"
                     : "bg-white border-gray-200 hover:shadow-lg hover:border-gray-300"
                 }`}
               >
@@ -294,11 +294,13 @@ export default function ResourcesSection() {
                       : "text-gray-400 group-hover:text-blue-600 group-hover:rotate-45"
                   }`} />
                 </div>
-                <h3 className={`font-semibold text-lg mb-2 ${
-                  darkMode ? "text-white" : "text-gray-900"
-                }`}>
-                  {card.title}
-                </h3>
+               <h3 className={`font-semibold text-lg mb-2 transition-colors duration-300 ${
+  darkMode 
+    ? "text-white group-hover:text-blue-600" 
+    : "text-gray-900 group-hover:text-blue-600"
+}`}>
+  {card.title}
+</h3>
                 <p className={`text-sm leading-relaxed ${
                   darkMode ? "text-gray-400" : "text-gray-600"
                 }`}>

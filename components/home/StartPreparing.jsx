@@ -35,13 +35,13 @@ export default function StartPreparing() {
         <div className="flex flex-col gap-6 sm:gap-8 md:flex-row md:items-center md:justify-between mb-16 md:mb-20">
           <div className="flex-shrink-0">
             <div className="w-fit mb-3">
-              <p className={`text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full whitespace-nowrap ${
-                darkMode
-                  ? "bg-blue-950/50 text-blue-400"
-                  : "bg-blue-100 text-blue-600"
-              }`}>
-                START PREPARING
-              </p>
+             <p className={`inline-block px-4 py-2 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  START PREPARING
+</p>
             </div>
             <h2 className={`text-2xl sm:text-3xl md:text-[40px] font-bold leading-tight max-w-xs sm:max-w-sm md:max-w-lg ${
               darkMode ? "text-white" : "text-gray-900"

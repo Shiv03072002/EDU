@@ -173,13 +173,13 @@ export default function ArticlesSection() {
           {/* Header row */}
           <div className="flex items-center mb-10">
             <div style={{ width: "55%" }}>
-              <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-4 ${
-                darkMode
-                  ? "bg-blue-950/50 text-blue-400"
-                  : "bg-blue-100 text-blue-600"
-              }`}>
-                LATEST ARTICLES
-              </span>
+              <span className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  LATEST ARTICLES
+</span>
               <h2 className={`text-3xl xl:text-4xl font-bold leading-tight max-w-md ${
                 darkMode ? "text-white" : "text-gray-900"
               }`}>
@@ -269,13 +269,13 @@ export default function ArticlesSection() {
         {/* ── TABLET md ── */}
         <div className="hidden md:block lg:hidden">
           <div className="mb-8">
-            <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-3 ${
-              darkMode
-                ? "bg-blue-950/50 text-blue-400"
-                : "bg-blue-100 text-blue-600"
-            }`}>
-              LATEST ARTICLES
-            </span>
+           <span className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  LATEST ARTICLES
+</span>
             <div className="flex items-start justify-between gap-6">
               <h2 className={`text-3xl font-bold leading-tight max-w-xs ${
                 darkMode ? "text-white" : "text-gray-900"
@@ -352,13 +352,13 @@ export default function ArticlesSection() {
         <div className="block md:hidden">
           {/* Header */}
           <div className="mb-7">
-            <span className={`inline-block text-xs px-3 py-1 rounded-full font-semibold mb-3 ${
-              darkMode
-                ? "bg-blue-950/50 text-blue-400"
-                : "bg-blue-100 text-blue-600"
-            }`}>
-              LATEST ARTICLES
-            </span>
+           <span className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+  darkMode
+    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+    : "bg-blue-100 text-blue-600"
+}`}>
+  LATEST ARTICLES
+</span>
             <h2 className={`text-2xl font-bold leading-tight mb-3 ${
               darkMode ? "text-white" : "text-gray-900"
             }`}>

@@ -103,7 +103,7 @@ export default function StudyResources() {
         {/* ── MOBILE & TABLET (< lg): stacked layout ── */}
         <div className="lg:hidden">
           {/* Header */}
-          <p className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-1 ${
+          <p className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-2 ${
             darkMode
               ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
               : "bg-blue-100 text-blue-600"
