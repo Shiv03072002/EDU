@@ -322,7 +322,7 @@ export default function ResourcesSection() {
                 <h3
                   className={`font-semibold text-lg mb-2 transition-colors duration-300 ${
                     darkMode
-                      ? "text-white group-hover:text-[#2563EB]"
+                      ? "text-white group-hover:text-blue-500"
                       : "text-gray-900 group-hover:text-[#2563EB]"
                   }`}
                 >

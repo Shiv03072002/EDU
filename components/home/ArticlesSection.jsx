@@ -74,11 +74,10 @@ export default function ArticlesSection() {
       {/* Decorative star */}
       <div className="absolute -left-5 lg:-left-16 top-2 md:top-2 w-10 md:w-30 z-10">
         <motion.div>
-          <Image
+          <img
             src="/images/home/Component107.png"
             alt="star"
-            width={80}
-            height={80}
+            
             className="w-full h-auto"
           />
         </motion.div>
@@ -157,7 +156,7 @@ export default function ArticlesSection() {
       />
 
       {/* Bottom decorative images */}
-      <div className="hidden lg:block absolute bottom-34 right-66 w-50 h-30">
+      <div className="hidden lg:block absolute bottom-34 right-65 w-49 h-30">
         <img
           src="/images/articles/Hands.png"
           alt=""

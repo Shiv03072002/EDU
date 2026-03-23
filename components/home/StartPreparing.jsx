@@ -173,32 +173,27 @@ export default function StartPreparing() {
 
       {/* LEFT DECORATIVE IMAGE */}
       <div className="hidden sm:block absolute -left-2 top-60 -translate-y-1/2 z-10">
-        <Image
+        <img
           src="/images/home/red.png"
           alt="left arrow"
-          width={32}
-          height={32}
+         
           className="w-8 h-8 md:w-20 md:h-18 scale-x-[-1]"
         />
       </div>
 
       <div className="sm:hidden absolute -left-2 top-70 -translate-y-1/2 z-10">
-        <Image
+        <img
           src="/images/home/red.png"
           alt="left arrow"
-          width={32}
-          height={32}
           className="w-16 h-10 md:w-20 md:h-18 scale-x-[-1]"
         />
       </div>
 
       {/* TOP CENTER DECORATIVE IMAGE */}
-      <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-1.5 md:-top-3.5 z-20">
-        <Image
-          src="/images/prep/sp.png"
+      <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-0.75 md:-top-2.5 z-20">
+        <img
+          src="/images/prep/Spri1.png"
           alt="decoration"
-          width={32}
-          height={32}
           className="w-20 h-24 md:w-30 md:h-40 object-contain"
         />
       </div>

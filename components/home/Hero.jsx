@@ -19,7 +19,7 @@ const HeroSection = () => {
     "CUET",
     "CBSE",
   ];
-  const colors = ["#16a34a", "#eb248b", "#ebe826", "#2563eb"];
+  const colors = ["#16a34a", "#eb248b", "#d4d21f", "#2563eb"];
 
   return (
     <section
@@ -31,11 +31,10 @@ const HeroSection = () => {
 
       {/* LEFT blue shape — hidden on mobile, visible md+ */}
       <div className="hidden md:block absolute left-0 bottom-20 w-[110px] z-0">
-        <Image
+        <img
           src="/images/home/left.png"
           alt="left-shape"
-          width={400}
-          height={100}
+          
           className="w-full h-auto"
           priority
         />
@@ -43,11 +42,10 @@ const HeroSection = () => {
 
       {/* RIGHT blue shape — hidden on mobile, visible md+ centered vertically */}
       <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[140px] z-0">
-        <Image
+        <img
           src="/images/home/right.png"
           alt="right-shape"
-          width={200}
-          height={400}
+         
           className="w-full h-auto"
           priority
         />
@@ -59,11 +57,10 @@ const HeroSection = () => {
           animate={{ rotate: 360 }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         >
-          <Image
+          <img
             src="/images/home/Component107.png"
             alt="star"
-            width={80}
-            height={80}
+           
             className="w-full h-auto"
           />
         </motion.div>
@@ -75,33 +72,30 @@ const HeroSection = () => {
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Image
+        <img
           src="/images/home/Component105.png"
           alt="bulb"
-          width={60}
-          height={60}
+        
           className="w-full h-auto"
         />
       </motion.div>
 
       {/* GREEN SPIRAL — hidden on mobile, visible md+ */}
       <div className="hidden md:block absolute left-14 bottom-46 w-32 z-10">
-        <Image
+        <img
           src="/images/home/green.png"
           alt="green-spiral"
-          width={80}
-          height={80}
+          
           className="w-full h-auto"
         />
       </div>
 
       {/* RED ARROW — hidden on mobile, visible md+ */}
       <div className="hidden md:block absolute right-33 top-[46%] w-20 z-10">
-        <Image
+        <img
           src="/images/home/red.png"
           alt="red-arrow"
-          width={80}
-          height={80}
+         
           className="w-full h-auto"
         />
       </div>
@@ -119,33 +113,30 @@ const HeroSection = () => {
 
       {/* Mobile-only red arrow — bottom-right, well below search */}
       <div className="block md:hidden absolute right-23 bottom-40 w-16 z-10">
-        <Image
+        <img
           src="/images/home/red.png"
           alt="red-arrow"
-          width={80}
-          height={80}
+          
           className="w-full h-auto"
         />
       </div>
 
       {/* Mobile-only right blue blob — strictly bottom-right corner */}
       <div className="block md:hidden absolute right-0 bottom-28 w-[100px] z-0">
-        <Image
+        <img
           src="/images/home/right.png"
           alt="right-shape"
-          width={200}
-          height={400}
+         
           className="w-full h-auto"
         />
       </div>
 
       {/* Mobile-only left blue blob — strictly bottom-left corner */}
       <div className="block md:hidden absolute left-0 bottom-20 w-[90px] z-0">
-        <Image
+        <img
           src="/images/home/left.png"
           alt="left-shape"
-          width={400}
-          height={100}
+        
           className="w-full h-auto"
         />
       </div>
@@ -165,7 +156,7 @@ const HeroSection = () => {
           }`}
         >
           <span
-            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-500"}`}
           >
             NEET Notes
           </span>
@@ -186,7 +177,7 @@ const HeroSection = () => {
           }`}
         >
           <span
-            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-500"}`}
           >
             JEE Mock Test
           </span>
@@ -207,7 +198,7 @@ const HeroSection = () => {
           }`}
         >
           <span
-            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-500"}`}
           >
             CBSE Books
           </span>
@@ -228,7 +219,7 @@ const HeroSection = () => {
           }`}
         >
           <span
-            className={`text-sm ${darkMode ? "text-gray-300" : "text-[#0f172a]"}`}
+            className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-500"}`}
           >
             Class 10 Notes
           </span>

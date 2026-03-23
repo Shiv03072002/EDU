@@ -13,7 +13,6 @@ export default function Footer() {
         "Boards",
         "Quizzes",
         "Blog",
-        "Education News",
       ],
     },
     {
@@ -72,7 +71,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className={`w-full px-4 py-3 rounded-lg text-base outline-none pr-28 border transition-colors shadow-md ${
                   darkMode
-                    ? "bg-[#1A1A1A] border-gray-700 text-gray-200 placeholder:text-gray-500"
+                    ? "bg-black border-gray-900 text-gray-200 placeholder:text-gray-500"
                     : "bg-white border-gray-200 text-gray-800"
                 } focus:border-[#2563EB]`}
               />
