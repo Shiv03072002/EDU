@@ -132,14 +132,14 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
                 {visible.map((card, i) => (
                   <div
                     key={i}
-                    className={`group flex flex-col items-start gap-2 p-6 rounded-md border transition-all duration-200 cursor-pointer ${
+                    className={`group flex flex-col items-start gap-2 p-3 rounded-md border transition-all duration-200 cursor-pointer ${
                       darkMode
                         ? "bg-[#181818] border-gray-800 hover:border-blue-700 hover:bg-blue-950/30"
                         : "border-gray-100 hover:border-blue-200 hover:bg-blue-50"
                     }`}
                   >
                     <div
-                      className={`p-2 rounded-lg transition-all duration-200 ${
+                      className={`p-2 rounded-sm transition-all duration-200 ${
                         darkMode
                           ? "bg-[#111111]  group-hover:bg-[#2563EB]"
                           : "bg-gray-100 group-hover:bg-blue-500"
@@ -226,7 +226,7 @@ export default function ResourcesSection() {
         {/* Header */}
         <div className="md:text-center mb-6 md:mb-8">
           <div
-            className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
+            className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
               darkMode
                 ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                 : "bg-blue-100 text-[#2563EB]"
@@ -272,12 +272,12 @@ export default function ResourcesSection() {
               <button
                 key={item}
                 onClick={() => setActive(item)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+                className={`px-4 py-2 rounded-full text-md font-medium transition-all duration-200 border ${
                   active === item
                     ? "bg-[#2563EB] text-white border-blue-600 hover:bg-blue-700"
                     : darkMode
                       ? "text-gray-300 border-gray-700 hover:border-blue-600 bg-[#1A1A1A] hover:bg-gray-800"
-                      : "text-gray-700 border-gray-300 hover:border-gray-400 bg-gray-100"
+                      : "text-gray-700 border-gray-300 hover:border-blue-600 bg-[#F1F5F9]"
                 }`}
               >
                 {item}
@@ -307,12 +307,12 @@ export default function ResourcesSection() {
                       className={`w-5 h-5 transition-all duration-300 ${
                         darkMode
                           ? "text-gray-400 group-hover:text-white"
-                          : "text-gray-600 group-hover:text-white"
+                          : "text-[#64748B] group-hover:text-white"
                       }`}
                     />
                   </div>
                   <ArrowUpRight
-                    className={`w-4 h-4 transition-all duration-300 ${
+                    className={`w-5 h-5 transition-all duration-300 ${
                       darkMode
                         ? "text-gray-600 group-hover:text-[#2563EB] group-hover:rotate-45"
                         : "text-gray-400 group-hover:text-[#2563EB] group-hover:rotate-45"

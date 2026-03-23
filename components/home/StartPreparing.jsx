@@ -38,7 +38,7 @@ export default function StartPreparing() {
           <div className="flex-shrink-0">
             <div className="w-fit mb-3">
               <p
-                className={`inline-block px-4 py-2 rounded-full text-sm font-bold tracking-[0.18em] uppercase ${
+                className={`inline-block px-4 py-1 rounded-full text-xs md:text-sm font-bold tracking-[0.18em] uppercase ${
                   darkMode
                     ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                     : "bg-blue-100 text-[#2563EB]"
@@ -90,7 +90,7 @@ export default function StartPreparing() {
               {/* Card content with overflow hidden for hover effect */}
               <div className="relative p-6 sm:p-8 pt-14 sm:pt-14 overflow-hidden min-h-[200px] sm:min-h-[220px]">
                 {/* Bottom to top overlay effect */}
-                <div className="absolute inset-0 bg-[#2f66d0] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+                <div className="absolute inset-0 bg-[#2563EB] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
 
                 {/* CONTENT */}
                 <div className="relative z-10 text-left">
@@ -193,13 +193,13 @@ export default function StartPreparing() {
       </div>
 
       {/* TOP CENTER DECORATIVE IMAGE */}
-      <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-1.75 z-20">
+      <div className="absolute left-70 md:left-1/2 md:-translate-x-1/2 -top-1.5 md:-top-3.5 z-20">
         <Image
           src="/images/prep/sp.png"
           alt="decoration"
           width={32}
           height={32}
-          className="w-20 h-24 md:w-40 md:h-40"
+          className="w-20 h-24 md:w-30 md:h-40 object-contain"
         />
       </div>
     </section>

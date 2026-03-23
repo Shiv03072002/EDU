@@ -179,7 +179,7 @@ export default function ArticlesSection() {
           <div className="flex items-center mb-10">
             <div style={{ width: "55%" }}>
               <span
-                className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+                className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
                   darkMode
                     ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                     : "bg-blue-100 text-[#2563EB]"
@@ -238,7 +238,7 @@ export default function ArticlesSection() {
                       </span>
                     </div>
                     <h3
-                      className={`mt-1.5 font-bold text-base xl:text-lg leading-snug transition-colors group-hover:text-[#2563EB] ${
+                      className={`mt-1.5 font-bold text-base lg:text-xl leading-snug transition-colors group-hover:text-[#2563EB] ${
                         darkMode ? "text-white" : "text-gray-900"
                       }`}
                     >
@@ -315,7 +315,7 @@ export default function ArticlesSection() {
         <div className="hidden md:block lg:hidden">
           <div className="mb-8">
             <span
-              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+              className={`inline-block px-4 py-1 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider mb-4 ${
                 darkMode
                   ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
@@ -432,7 +432,7 @@ export default function ArticlesSection() {
           {/* Header */}
           <div className="mb-7">
             <span
-              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
+              className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
                 darkMode
                   ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
@@ -465,7 +465,7 @@ export default function ArticlesSection() {
                 onClick={prev}
                 className={`absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border flex items-center justify-center ${
                   darkMode
-                    ? "border-blue-500 bg-[#1A1A1A] text-blue-500"
+                    ? "border-blue-500  text-blue-500 bg-white"
                     : "border-blue-600 bg-white text-[#2563EB]"
                 }`}
               >
@@ -475,7 +475,7 @@ export default function ArticlesSection() {
                 onClick={next}
                 className={`absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border flex items-center justify-center ${
                   darkMode
-                    ? "border-blue-500 bg-[#1A1A1A] text-blue-500"
+                    ? "border-blue-500 bg-white text-blue-500"
                     : "border-blue-600 bg-white text-[#2563EB]"
                 }`}
               >

@@ -51,7 +51,7 @@ export default function PromoteSection() {
           {/* Badge */}
           <div className="w-fit">
             <p
-              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+              className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
                 darkMode
                   ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
@@ -203,7 +203,7 @@ export default function PromoteSection() {
           <div className="lg:hidden flex items-center justify-between w-full mb-2">
             {/* Badge */}
             <p
-              className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
+              className={`inline-block px-4 py-1 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
                 darkMode
                   ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"

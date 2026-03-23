@@ -49,7 +49,7 @@ export default function StudyResources() {
                   <IconComponent size={14} className="text-[#2563EB]" />
                 </div>
               </div>
-              <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-[#2563EB] rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-lg">
+              <div className="w-24 h-24 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-[#2563EB] rounded-full flex items-center justify-center text-white font-semibold text-sm">
                 {step.name}
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function StudyResources() {
                   <IconComponent size={14} className="text-[#2563EB]" />
                 </div>
               </div>
-              <div className="w-28 h-28 bg-[#2563EB] rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-lg">
+              <div className="w-28 h-28 bg-[#2563EB] rounded-full flex items-center justify-center text-white font-semibold text-lg ">
                 {step.name}
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function StudyResources() {
         <div className="lg:hidden">
           {/* Header */}
           <p
-            className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-2 ${
+            className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-1 ${
               darkMode
                 ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                 : "bg-blue-100 text-[#2563EB]"

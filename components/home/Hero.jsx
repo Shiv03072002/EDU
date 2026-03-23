@@ -23,7 +23,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className={`relative w-full h-174 md:h-182 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden ${
+      className={`relative w-full h-174 md:h-183 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden ${
         darkMode ? "bg-[#0A0A0A]" : "bg-white"
       }`}
     >

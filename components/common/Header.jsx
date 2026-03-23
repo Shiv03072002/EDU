@@ -335,11 +335,11 @@ export default function Header() {
             </span>
             <button
               onClick={closeMobileMenu}
-              className={`w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center transition-all ${
-                darkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"
+              className={`w-8 h-8 rounded-full border  flex items-center justify-center transition-all ${
+                darkMode ? "hover:bg-gray-800 border-gray-700" : "hover:bg-gray-100 border-gray-300"
               }`}
             >
-              <X size={20} className={darkMode ? "text-gray-400" : "text-[#475569]"} />
+              <X size={20} className={darkMode ? "text-gray-400 " : "text-[#475569]"} />
             </button>
           </div>
 
