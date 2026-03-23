@@ -55,9 +55,16 @@ export default function Footer() {
         {/* Mobile: Center Section at Top */}
         <div className="block md:hidden w-full mb-12">
           <div className="">
+            <div className="flex justify-center items-center gap-2">
+              <img
+                  src="/images/logo.jpeg" // change to your logo path
+                  alt="logo"
+                  className="w-8 h-8 object-contain"
+                />
             <h2 className="text-4xl font-bold tracking-wider text-white">
               ExamWaliSite
             </h2>
+            </div>
             <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
               We help students discover the best study resources. Get the
               latest study materials, exam updates, and preparation tips
@@ -116,9 +123,16 @@ export default function Footer() {
           {/* Center Section - 30% (Hidden on Mobile) */}
           <div className="hidden md:block md:w-[30%]">
             <div className="text-center">
-              <h2 className="text-5xl font-bold tracking-wider text-white">
-                ExamWaliSite
-              </h2>
+              <div className="flex justify-center items-center gap-2">
+              <img
+                  src="/images/logo.jpeg" // change to your logo path
+                  alt="logo"
+                  className="w-8 h-10 object-contain"
+                />
+            <h2 className="text-5xl font-bold tracking-wider text-white">
+              ExamWaliSite
+            </h2>
+            </div>
               <p className="text-[#CBD5E1] text-base mt-4 leading-relaxed font-medium">
                 We help students discover the best study resources. Get the
                 latest study materials, exam updates, and preparation tips
