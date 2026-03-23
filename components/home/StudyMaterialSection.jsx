@@ -232,7 +232,7 @@ export default function ResourcesSection() {
                 : "bg-blue-100 text-[#2563EB]"
             }`}
           >
-            DISCOVER RESOURCES
+            Explore Study Material
           </div>
           <h1
             className={`text-2xl sm:text-3xl md:text-[42px] font-bold mb-3 md:mb-4 leading-tight px-2 ${
