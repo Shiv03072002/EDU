@@ -5,10 +5,12 @@ import { ChevronDown, Search, Menu, X, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
+
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openNestedDropdown, setOpenNestedDropdown] = useState(null); // New state for nested dropdowns
   const { darkMode, toggleDarkMode } = useTheme();
 
   // Handle scroll effect
@@ -44,36 +46,350 @@ export default function Header() {
       name: "Boards",
       dropdown: true,
       href: "#",
-      items: ["CBSE", "ICSE", "State Boards", "International"],
+      items: [
+        { 
+          title: "CBSE", 
+          href: "/boards/cbse",
+        },
+        { 
+          title: "ICSE", 
+          href: "/boards/icse",
+        },
+        { 
+          title: "State Boards", 
+          href: "/boards/state-boards",
+          hasNested: true,
+          nestedKey: "stateBoards",
+          subItems: [
+            { title: "UP Board", href: "/boards/state/up" },
+            { title: "Bihar Board", href: "/boards/state/bihar" },
+            { title: "Rajasthan Board", href: "/boards/state/rajasthan" },
+            { title: "MP Board", href: "/boards/state/mp" },
+           
+          ]
+        },
+        { 
+          title: "International", 
+          href: "/boards/international",
+          hasNested: true,
+          nestedKey: "international",
+          subItems: [
+            { title: "Cambridge (CIE)", href: "/boards/international/cambridge" },
+            { title: "IB (International Baccalaureate)", href: "/boards/international/ib" },
+            { title: "IGCSE", href: "/boards/international/igcse" },
+            { title: "EDEXCEL", href: "/boards/international/edexcel" },
+           
+          ]
+        }
+      ],
     },
     {
       name: "Exams",
       dropdown: true,
       href: "#",
-      items: ["CUET UG", "NEET", "JEE", "CLASS 12"],
+      items: ["CUET UG", "NEET", "JEE", "CLASS 12","ALL"],
     },
     {
       name: "Study Materials",
       dropdown: true,
       href: "#",
-      items: ["Notes", "Videos", "Practice Papers", "Reference Books"],
+      items: ["Notes", "Practice Papers", "Reference Books"],
     },
-    { name: "Articles", dropdown: false, href: "/articles" },
-  ];
-
-  const mobileLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
-    { name: "Help & Support", href: "/support" },
+    {
+      name: "Exam Updates",
+      dropdown: true,
+      href: "#",
+      items: [
+        "All Updates",
+        "CUET Updates",
+        "NEET Updates",
+        "JEE Updates",
+        "Board Exam Updates",
+        "Admit Cards",
+        "Results",
+        "Syllabus Updates",
+      ],
+    },
+    
   ];
 
   const handleDropdownClick = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
+    setOpenNestedDropdown(null); // Close nested dropdown when changing main dropdown
+  };
+
+  const handleNestedClick = (nestedKey) => {
+    setOpenNestedDropdown(openNestedDropdown === nestedKey ? null : nestedKey);
   };
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setOpenDropdown(null);
+    setOpenNestedDropdown(null);
+  };
+
+  // Helper function to render dropdown items
+  const renderDropdownItems = (items, parentIndex = null) => {
+    return items.map((subItem, subIndex) => {
+      // Handle string items
+      if (typeof subItem === 'string') {
+        return (
+          <motion.div
+            key={subIndex}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: subIndex * 0.03 }}
+          >
+            <Link
+              href="#"
+              className={`group relative flex items-center gap-3 px-5 py-3 text-sm transition-all duration-200 overflow-hidden ${
+                darkMode
+                  ? "text-gray-300 hover:text-white"
+                  : "text-gray-600 hover:text-[#2563EB]"
+              }`}
+              onClick={() => setOpenDropdown(null)}
+            >
+              <div
+                className={`absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${
+                  darkMode ? "bg-blue-600/20" : "bg-blue-50"
+                }`}
+              />
+              <div
+                className={`relative z-10 w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  darkMode
+                    ? "bg-gray-600 group-hover:bg-blue-500 group-hover:scale-150"
+                    : "bg-gray-300 group-hover:bg-blue-500 group-hover:scale-150"
+                }`}
+              />
+              <div className="relative z-10 flex-1">
+                <span className="font-medium">{subItem}</span>
+              </div>
+              <svg
+                className={`relative z-10 w-3.5 h-3.5 transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${
+                  darkMode ? "text-blue-500" : "text-blue-600"
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </motion.div>
+        );
+      }
+      
+      // Handle items with nested dropdowns
+      if (subItem.hasNested && subItem.subItems) {
+        const isOpen = openNestedDropdown === subItem.nestedKey;
+        
+        return (
+          <div key={subIndex} className="relative">
+            <button
+              onClick={() => handleNestedClick(subItem.nestedKey)}
+              className={`w-full group relative flex items-center justify-between gap-3 px-5 py-3 text-sm transition-all duration-200 overflow-hidden ${
+                darkMode
+                  ? "text-gray-300 hover:text-white"
+                  : "text-gray-600 hover:text-[#2563EB]"
+              }`}
+            >
+              <div
+                className={`absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${
+                  darkMode ? "bg-blue-600/20" : "bg-blue-50"
+                }`}
+              />
+              <div className="relative z-10 flex items-center gap-3 flex-1">
+                <div
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    darkMode
+                      ? "bg-gray-600 group-hover:bg-blue-500"
+                      : "bg-gray-300 group-hover:bg-blue-500"
+                  }`}
+                />
+                <span className="font-medium">{subItem.title}</span>
+              </div>
+              <ChevronDown
+                size={14}
+                className={`relative z-10 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                } ${darkMode ? "text-gray-400" : "text-gray-500"}`}
+              />
+            </button>
+            
+            {/* Nested Dropdown */}
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden"
+                >
+                  <div className="pl-8 pr-2 pb-2 space-y-1">
+                    {subItem.subItems.map((nestedItem, nestedIndex) => (
+                      <Link
+                        key={nestedIndex}
+                        href={nestedItem.href}
+                        className={`flex items-center gap-3 px-3 py-2 text-sm rounded-md transition-all duration-200 ${
+                          darkMode
+                            ? "text-gray-400 hover:text-white hover:bg-gray-800"
+                            : "text-gray-500 hover:text-[#2563EB] hover:bg-gray-50"
+                        }`}
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        <div className="w-1 h-1 rounded-full bg-current" />
+                        {nestedItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      }
+      
+      // Handle regular object items (CBSE, ICSE)
+      return (
+        <motion.div
+          key={subIndex}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: subIndex * 0.03 }}
+        >
+          <Link
+            href={subItem.href || "#"}
+            className={`group relative flex items-center gap-3 px-5 py-3 text-sm transition-all duration-200 overflow-hidden ${
+              darkMode
+                ? "text-gray-300 hover:text-white"
+                : "text-gray-600 hover:text-[#2563EB]"
+            }`}
+            onClick={() => setOpenDropdown(null)}
+          >
+            <div
+              className={`absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${
+                darkMode ? "bg-blue-600/20" : "bg-blue-50"
+              }`}
+            />
+            <div
+              className={`relative z-10 w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                darkMode
+                  ? "bg-gray-600 group-hover:bg-blue-500 group-hover:scale-150"
+                  : "bg-gray-300 group-hover:bg-blue-500 group-hover:scale-150"
+              }`}
+            />
+            <div className="relative z-10 flex-1">
+              <span className="font-medium">{subItem.title}</span>
+            </div>
+            <svg
+              className={`relative z-10 w-3.5 h-3.5 transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${
+                darkMode ? "text-blue-500" : "text-blue-600"
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </Link>
+        </motion.div>
+      );
+    });
+  };
+
+  // Helper function to render mobile dropdown items
+  const renderMobileDropdownItems = (items) => {
+    return items.map((subItem, subIndex) => {
+      // Handle string items
+      if (typeof subItem === 'string') {
+        return (
+          <Link
+            key={subIndex}
+            href="#"
+            className={`block py-2 text-sm transition-colors ${
+              darkMode
+                ? "text-gray-400 hover:text-[#2563EB]"
+                : "text-[#475569] hover:text-[#2563EB]"
+            }`}
+            onClick={closeMobileMenu}
+          >
+            {subItem}
+          </Link>
+        );
+      }
+      
+      // Handle items with nested dropdowns for mobile
+      if (subItem.hasNested && subItem.subItems) {
+        const isOpen = openNestedDropdown === subItem.nestedKey;
+        
+        return (
+          <div key={subIndex} className="mb-2">
+            <button
+              onClick={() => handleNestedClick(subItem.nestedKey)}
+              className={`w-full flex items-center justify-between py-2 text-sm transition-colors ${
+                darkMode
+                  ? "text-gray-300 hover:text-[#2563EB]"
+                  : "text-[#475569] hover:text-[#2563EB]"
+              }`}
+            >
+              <span className="font-medium">{subItem.title}</span>
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            
+            {isOpen && (
+              <div className="pl-4 mt-1 space-y-1">
+                {subItem.subItems.map((nestedItem, nestedIndex) => (
+                  <Link
+                    key={nestedIndex}
+                    href={nestedItem.href}
+                    className={`block py-1.5 text-sm transition-colors ${
+                      darkMode
+                        ? "text-gray-400 hover:text-[#2563EB]"
+                        : "text-[#475569] hover:text-[#2563EB]"
+                    }`}
+                    onClick={closeMobileMenu}
+                  >
+                    {nestedItem.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      }
+      
+      // Handle regular object items
+      return (
+        <Link
+          key={subIndex}
+          href={subItem.href || "#"}
+          className={`block py-2 text-sm transition-colors ${
+            darkMode
+              ? "text-gray-400 hover:text-[#2563EB]"
+              : "text-[#475569] hover:text-[#2563EB]"
+          }`}
+          onClick={closeMobileMenu}
+        >
+          {subItem.title}
+        </Link>
+      );
+    });
   };
 
   return (
@@ -94,14 +410,12 @@ export default function Header() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center gap-2">
-                {/* Logo */}
                 <img
-                  src="/images/logo.jpeg" // change to your logo path
-                  alt="logo"
+                  src="/images/logo.jpeg"
+                  alt="ExamWaliSite logo"
                   className="w-8 h-8 object-contain"
+                  loading="eager"
                 />
-
-                {/* Text */}
                 <h1
                   className={`text-xl md:text-2xl font-bold transition-colors ${
                     darkMode
@@ -160,96 +474,22 @@ export default function Header() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95, y: -5 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      onMouseLeave={() => setOpenDropdown(null)}
-                      className={`absolute top-full left-0 mt-2 min-w-[280px] rounded-xl shadow-2xl overflow-hidden z-50 backdrop-blur-sm ${
+                      onMouseLeave={() => {
+                        setOpenDropdown(null);
+                        setOpenNestedDropdown(null);
+                      }}
+                      className={`absolute top-full left-0 mt-2 min-w-[320px] rounded-xl shadow-2xl overflow-hidden z-50 backdrop-blur-sm ${
                         darkMode
                           ? "bg-[#0A0A0A]/95 border border-gray-800/50"
                           : "bg-white/95 border border-gray-200/50 backdrop-blur-sm"
                       }`}
                     >
-                      {/* Animated gradient border */}
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Dropdown items with categories */}
-                      <div className="py-2">
-                        {item.items.map((subItem, subIndex) => (
-                          <motion.div
-                            key={subIndex}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: subIndex * 0.03 }}
-                          >
-                            <Link
-                              href={subItem.href || "#"}
-                              className={`group relative flex items-center gap-3 px-5 py-3 text-sm transition-all duration-200 overflow-hidden ${
-                                darkMode
-                                  ? "text-gray-300 hover:text-white"
-                                  : "text-gray-600 hover:text-[#2563EB]"
-                              }`}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {/* Hover background animation */}
-                              <div
-                                className={`absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${
-                                  darkMode ? "bg-blue-600/20" : "bg-blue-50"
-                                }`}
-                              />
-
-                              {/* Icon or indicator */}
-                              {subItem.icon ? (
-                                <div className="relative z-10 w-5 h-5">
-                                  {subItem.icon}
-                                </div>
-                              ) : (
-                                <div
-                                  className={`relative z-10 w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                                    darkMode
-                                      ? "bg-gray-600 group-hover:bg-blue-500 group-hover:scale-150"
-                                      : "bg-gray-300 group-hover:bg-blue-500 group-hover:scale-150"
-                                  }`}
-                                />
-                              )}
-
-                              {/* Content */}
-                              <div className="relative z-10 flex-1">
-                                <span className="font-medium">
-                                  {subItem.title || subItem}
-                                </span>
-                                {subItem.description && (
-                                  <p
-                                    className={`text-xs mt-0.5 ${
-                                      darkMode
-                                        ? "text-gray-500 group-hover:text-gray-400"
-                                        : "text-gray-400 group-hover:text-gray-500"
-                                    }`}
-                                  >
-                                    {subItem.description}
-                                  </p>
-                                )}
-                              </div>
-
-                              {/* Arrow indicator */}
-                              <svg
-                                className={`relative z-10 w-3.5 h-3.5 transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${
-                                  darkMode ? "text-blue-500" : "text-blue-600"
-                                }`}
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </Link>
-                          </motion.div>
-                        ))}
+                      <div className="py-2 max-h-[500px] overflow-y-auto">
+                        {renderDropdownItems(item.items)}
                       </div>
 
-                      {/* Optional: Quick actions footer */}
+                      {/* Quick actions footer */}
                       <div
                         className={`relative px-5 py-3 border-t flex items-center justify-between ${
                           darkMode
@@ -292,7 +532,7 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Right Section */}
+            {/* Right Section - Keep the same */}
             <div className="flex items-center gap-3">
               {/* Dark Mode Toggle */}
               <button
@@ -326,7 +566,7 @@ export default function Header() {
 
               {/* CTA - Desktop */}
               <button className="hidden sm:block bg-[#2563EB] text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 relative overflow-hidden group">
-                <span className="relative z-10">Promote Platform</span>
+                <span className="relative z-10">Sign in</span>
                 <span className="absolute inset-0 bg-[#1d4ed8] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
               </button>
 
@@ -356,7 +596,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Slider Menu - Fixed positioning */}
+      {/* Mobile Slider Menu - Keep the same but update state handling */}
       <div
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden ${
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -365,7 +605,7 @@ export default function Header() {
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-full  shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-full shadow-2xl z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } ${darkMode ? "bg-[#0A0A0A]" : "bg-white"}`}
       >
@@ -383,7 +623,7 @@ export default function Header() {
             </span>
             <button
               onClick={closeMobileMenu}
-              className={`w-8 h-8 rounded-full border  flex items-center justify-center transition-all ${
+              className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
                 darkMode
                   ? "hover:bg-gray-800 border-gray-700"
                   : "hover:bg-gray-100 border-gray-300"
@@ -391,7 +631,7 @@ export default function Header() {
             >
               <X
                 size={20}
-                className={darkMode ? "text-gray-400 " : "text-[#475569]"}
+                className={darkMode ? "text-gray-400" : "text-[#475569]"}
               />
             </button>
           </div>
@@ -399,7 +639,6 @@ export default function Header() {
           {/* Slider Content */}
           <div className="flex-1 overflow-y-auto py-4 px-4">
             <nav className="space-y-1">
-              {/* Mobile Navigation Items */}
               {navItems.map((item, index) => (
                 <div
                   key={index}
@@ -428,23 +667,9 @@ export default function Header() {
                         />
                       </button>
 
-                      {/* Mobile Dropdown */}
                       {openDropdown === index && (
                         <div className="pb-3 pl-4 space-y-2">
-                          {item.items.map((subItem, subIndex) => (
-                            <Link
-                              key={subIndex}
-                              href="#"
-                              className={`block py-2 text-sm transition-colors ${
-                                darkMode
-                                  ? "text-gray-400 hover:text-[#2563EB]"
-                                  : "text-[#475569] hover:text-[#2563EB]"
-                              }`}
-                              onClick={closeMobileMenu}
-                            >
-                              {subItem}
-                            </Link>
-                          ))}
+                          {renderMobileDropdownItems(item.items)}
                         </div>
                       )}
                     </>

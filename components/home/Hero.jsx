@@ -36,7 +36,7 @@ const HeroSection = () => {
           alt="left-shape"
           
           className="w-full h-auto"
-          priority
+          
         />
       </div>
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
           alt="right-shape"
          
           className="w-full h-auto"
-          priority
+          
         />
       </div>
 

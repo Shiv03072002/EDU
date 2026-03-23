@@ -202,7 +202,7 @@ export default function ResourcesSection() {
       <motion.img
         src="/images/resources/arrow.png"
         alt="arrow"
-        className="hidden md:block absolute left-24 top-28 w-24 object-contain "
+        className="hidden md:block absolute left-14 top-28 w-24 object-contain "
         animate={{ rotate: [10, -10] }}
         transition={{
           duration: 1.5,
