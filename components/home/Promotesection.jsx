@@ -24,6 +24,28 @@ export default function PromoteSection() {
     message: "",
   });
 
+
+  const items = [
+  {
+    curve: "/images/promote/Vector 10.png",
+    curveClass: "w-60 object-contain absolute -left-70 -top-6",
+    icon: "/images/promote/img2.png",
+    iconClass: "absolute top-10 -left-70 w-18 h-18",
+  },
+  {
+    curve: "/images/promote/Vector 10.png",
+    curveClass: "w-60 object-contain absolute -left-20 -top-6",
+    icon: "/images/promote/img3.png",
+    iconClass: "absolute top-10 right-86 w-18 h-18",
+  },
+  {
+    curve: "/images/promote/Vector 10.png",
+    curveClass: "w-60 object-contain absolute -right-10 -top-6",
+    icon: "/images/promote/img1.png",
+    iconClass: "absolute top-12 right-36 w-18 h-18",
+  },
+];
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -156,48 +178,24 @@ export default function PromoteSection() {
         <div className="flex flex-col gap-3 lg:pt-16 w-full">
           {/* TOP DESIGN - HIDDEN ON MOBILE */}
           <div className="hidden lg:block absolute -top-10 right-0 w-[320px] h-[120px]">
-            {/* Curve 1 */}
-            <div>
-              <img
-                src="/images/promote/Vector 10.png"
-                className="w-60 object-contain absolute -left-70 -top-6"
-                alt="curve"
-              />
-              <img
-                src="/images/promote/img2.png"
-                className="absolute top-10 -left-70 w-18 h-18"
-                alt=""
-              />
-            </div>
+  {items.map((item, i) => (
+    <div key={i}>
+      {/* Curve */}
+      <img
+        src={item.curve}
+        className={`${item.curveClass} ${darkMode ? "invert opacity-80" : ""}`}
+        alt="curve"
+      />
 
-            {/* 2nd */}
-            <div>
-              <img
-                src="/images/promote/Vector 10.png"
-                className="w-60 object-contain absolute -left-20 -top-6"
-                alt="curve"
-              />
-              <img
-                src="/images/promote/img3.png"
-                className="absolute top-10 right-86 w-18 h-18"
-                alt=""
-              />
-            </div>
-
-            {/* 3rd */}
-            <div>
-              <img
-                src="/images/promote/Vector 10.png"
-                className="w-60 object-contain absolute -right-10 -top-6"
-                alt="curve"
-              />
-              <img
-                src="/images/promote/img1.png"
-                className="absolute top-12 right-36 w-18 h-18"
-                alt=""
-              />
-            </div>
-          </div>
+      {/* Icon */}
+      <img
+        src={item.icon}
+        className={`${item.iconClass} ${darkMode ? "invert" : ""}`}
+        alt={`icon-${i}`}
+      />
+    </div>
+  ))}
+</div>
 
           {/* Mobile Header with Badge and Images */}
           <div className="lg:hidden flex items-center justify-between w-full mb-2">
@@ -213,23 +211,29 @@ export default function PromoteSection() {
             </p>
 
             {/* Images container */}
-            <div className="flex items-center justify-between gap-6">
-              <img
-                src="/images/promote/img2.png"
-                className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                alt=""
-              />
-              <img
-                src="/images/promote/img3.png"
-                className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                alt=""
-              />
-              <img
-                src="/images/promote/img1.png"
-                className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                alt=""
-              />
-            </div>
+            <div className="flex items-center justify-between gap-4">
+  <img
+    src="/images/promote/img2.png"
+    className={`w-7 h-7 md:w-10 md:h-10 object-contain ${
+      darkMode ? "invert" : ""
+    }`}
+    alt=""
+  />
+  <img
+    src="/images/promote/img3.png"
+    className={`w-6 h-6 md:w-10 md:h-10 object-contain ${
+      darkMode ? "invert" : ""
+    }`}
+    alt=""
+  />
+  <img
+    src="/images/promote/img1.png"
+    className={`w-8 h-8 md:w-10 md:h-10 object-contain ${
+      darkMode ? "invert" : ""
+    }`}
+    alt=""
+  />
+</div>
           </div>
 
           {/* Heading - SHOWN ON MOBILE (smaller size) */}
