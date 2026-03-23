@@ -92,7 +92,7 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
 
   return (
     <div
-      className={`rounded-xl overflow-hidden border ${
+      className={`rounded-md overflow-hidden border ${
         darkMode ? "border-gray-800 bg-[#1A1A1A]" : "border-gray-200 bg-white"
       }`}
     >
@@ -132,7 +132,7 @@ function AccordionItem({ filter, isOpen, onToggle, darkMode }) {
                 {visible.map((card, i) => (
                   <div
                     key={i}
-                    className={`group flex flex-col items-start gap-2 p-6 rounded-xl border transition-all duration-200 cursor-pointer ${
+                    className={`group flex flex-col items-start gap-2 p-6 rounded-md border transition-all duration-200 cursor-pointer ${
                       darkMode
                         ? "bg-[#181818] border-gray-800 hover:border-blue-700 hover:bg-blue-950/30"
                         : "border-gray-100 hover:border-blue-200 hover:bg-blue-50"
@@ -228,7 +228,7 @@ export default function ResourcesSection() {
           <div
             className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-wider ${
               darkMode
-                ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                 : "bg-blue-100 text-[#2563EB]"
             }`}
           >
@@ -314,7 +314,7 @@ export default function ResourcesSection() {
                   <ArrowUpRight
                     className={`w-4 h-4 transition-all duration-300 ${
                       darkMode
-                        ? "text-gray-600 group-hover:text-blue-400 group-hover:rotate-45"
+                        ? "text-gray-600 group-hover:text-[#2563EB] group-hover:rotate-45"
                         : "text-gray-400 group-hover:text-[#2563EB] group-hover:rotate-45"
                     }`}
                   />

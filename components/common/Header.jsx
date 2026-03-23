@@ -335,7 +335,7 @@ export default function Header() {
             </span>
             <button
               onClick={closeMobileMenu}
-              className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+              className={`w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center transition-all ${
                 darkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"
               }`}
             >
@@ -428,24 +428,6 @@ export default function Header() {
                 <button className="w-full bg-[#2563EB] text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-[#1d4ed8] transition-all">
                   Promote Platform
                 </button>
-              </div>
-
-              {/* Mobile Footer Links */}
-              <div className="pt-6 space-y-2">
-                {mobileLinks.map((link, idx) => (
-                  <Link
-                    key={idx}
-                    href={link.href}
-                    className={`block py-2 text-sm transition-colors ${
-                      darkMode
-                        ? "text-gray-400 hover:text-[#2563EB]"
-                        : "text-[#475569] hover:text-[#2563EB]"
-                    }`}
-                    onClick={closeMobileMenu}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
               </div>
             </nav>
           </div>

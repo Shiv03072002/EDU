@@ -181,7 +181,7 @@ export default function ArticlesSection() {
               <span
                 className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
                   darkMode
-                    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                    ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                     : "bg-blue-100 text-[#2563EB]"
                 }`}
               >
@@ -317,7 +317,7 @@ export default function ArticlesSection() {
             <span
               className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
                 darkMode
-                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >
@@ -434,7 +434,7 @@ export default function ArticlesSection() {
             <span
               className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 ${
                 darkMode
-                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >

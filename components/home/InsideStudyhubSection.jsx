@@ -110,7 +110,7 @@ export default function StudyResources() {
           <p
             className={`rounded-full text-xs font-semibold mb-3 uppercase tracking-wider inline-block px-4 py-2 ${
               darkMode
-                ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                 : "bg-blue-100 text-[#2563EB]"
             }`}
           >
@@ -137,7 +137,7 @@ To boost up your Exam Preparation
             {cards.map((card, i) => (
               <div
                 key={i}
-                className={`relative px-5 py-8 rounded-xl ${
+                className={`relative px-5 py-8 rounded-md ${
                   card.highlight
                     ? "bg-[#2563EB] text-white"
                     : darkMode
@@ -182,7 +182,7 @@ To boost up your Exam Preparation
             <p
               className={`rounded-full text-sm font-semibold mb-4 uppercase tracking-wider inline-block px-4 py-1 ${
                 darkMode
-                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >

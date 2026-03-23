@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "StudyHub",
+  title: "ExamWaliSite",
   description: "Study resources for exams",
 };
 

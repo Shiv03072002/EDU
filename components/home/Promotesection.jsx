@@ -39,6 +39,12 @@ export default function PromoteSection() {
         darkMode ? "bg-[#111111]" : "bg-[#F8FAFC]"
       }`}
     >
+
+       <div
+                    className={`absolute -left-10 -top-6  md:-top-8. w-20 h-20 md:w-30  md:h-30 rounded-full border-4 border-dotted z-0 ${
+                      darkMode ? "border-[#FFFFFF54]" : "border-gray-300"
+                    }`}
+                  />
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
         {/* ── LEFT COLUMN (50%) – HIDDEN ON MOBILE ── */}
         <div className="hidden lg:flex flex-col gap-6">
@@ -47,7 +53,7 @@ export default function PromoteSection() {
             <p
               className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
                 darkMode
-                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >
@@ -199,7 +205,7 @@ export default function PromoteSection() {
             <p
               className={`inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider ${
                 darkMode
-                  ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                  ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                   : "bg-blue-100 text-[#2563EB]"
               }`}
             >

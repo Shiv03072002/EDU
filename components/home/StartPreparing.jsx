@@ -38,9 +38,9 @@ export default function StartPreparing() {
           <div className="flex-shrink-0">
             <div className="w-fit mb-3">
               <p
-                className={`inline-block px-4 py-2 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase ${
+                className={`inline-block px-4 py-2 rounded-full text-sm font-bold tracking-[0.18em] uppercase ${
                   darkMode
-                    ? "bg-blue-950/50 text-blue-400 border border-blue-900/50"
+                    ? "bg-blue-950/50 text-[#2563EB] border border-blue-900/50"
                     : "bg-blue-100 text-[#2563EB]"
                 }`}
               >
