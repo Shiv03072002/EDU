@@ -110,6 +110,12 @@ export default function Header() {
         "Syllabus Updates",
       ],
     },
+    {
+    name: "Promote Your Brand",
+    dropdown: false,
+    href: "#",
+    
+  },
     
   ];
 
@@ -405,7 +411,7 @@ export default function Header() {
               : "bg-white border-gray-100"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -436,11 +442,11 @@ export default function Header() {
                     <button
                       onClick={() => handleDropdownClick(index)}
                       onMouseEnter={() => setOpenDropdown(index)}
-                      className={`flex items-center gap-1 px-3 py-2 text-md rounded-md transition-all duration-200 ${
+                      className={`flex items-center gap-1 p-2   text-sm rounded-md transition-all duration-200 ${
                         openDropdown === index
                           ? darkMode
-                            ? "text-[#2563EB] bg-blue-950/50"
-                            : "text-[#2563EB] bg-blue-50"
+                            ? "text-[#2563EB] "
+                            : "text-[#2563EB] "
                           : darkMode
                             ? "text-gray-300 hover:text-[#2563EB] hover:bg-blue-950/30"
                             : "text-[#475569] hover:text-[#2563EB] hover:bg-blue-50/50"
@@ -457,10 +463,10 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`block px-3 py-2 text-md rounded-md transition-all duration-200 ${
+                      className={`block  text-sm rounded-md transition-all duration-200 ${
                         darkMode
-                          ? "text-gray-300 hover:text-[#2563EB] hover:bg-blue-950/30"
-                          : "text-[#475569] hover:text-[#2563EB] hover:bg-blue-50/50"
+                          ? "text-gray-300 hover:text-[#2563EB] "
+                          : "text-[#475569] hover:text-[#2563EB] "
                       }`}
                     >
                       {item.name}
