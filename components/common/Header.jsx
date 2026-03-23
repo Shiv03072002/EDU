@@ -87,7 +87,7 @@ export default function Header() {
       name: "Exams",
       dropdown: true,
       href: "#",
-      items: ["CUET UG", "NEET", "JEE", "CLASS 12","ALL"],
+      items: ["CUET UG", "NEET", "JEE","Class 6-8", "Class 9-10","CLASS 12","ALL"],
     },
     {
       name: "Study Materials",

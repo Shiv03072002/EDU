@@ -13,6 +13,7 @@ export default function Footer() {
         "Boards",
         "Quizzes",
         "Blog",
+        "Promote your brand"
       ],
     },
     {
