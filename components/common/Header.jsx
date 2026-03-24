@@ -571,7 +571,7 @@ export default function Header() {
               </button>
 
               {/* CTA - Desktop */}
-              <button className="hidden sm:block bg-[#2563EB] text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 relative overflow-hidden group">
+              <button className="hidden sm:block bg-[#2563EB] text-white px-5 py-2.5 rounded-md text-sm font-medium transition-all duration-300 relative overflow-hidden group">
                 <span className="relative z-10">Sign in</span>
                 <span className="absolute inset-0 bg-[#1d4ed8] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></span>
               </button>
@@ -727,7 +727,7 @@ export default function Header() {
             <p
               className={`text-xs text-center ${darkMode ? "text-gray-500" : "text-[#475569]"}`}
             >
-              © 2024 ExamWaliSite. All rights reserved.
+              © 2026 ExamWaliSite. All rights reserved.
             </p>
           </div>
         </div>
