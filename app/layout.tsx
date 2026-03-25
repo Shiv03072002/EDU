@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
 import { ThemeProvider } from "@/context/ThemeContext";
-
+import EmailPopup from "@/components/common/EmailPopup";
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
@@ -36,7 +36,10 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <EmailPopup />
         </ThemeProvider>
+
+
       </body>
     </html>
   );
