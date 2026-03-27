@@ -9,6 +9,7 @@ export default function EmailPopup() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
     const alreadyShown = localStorage.getItem("emailPopupShown");
@@ -36,112 +37,176 @@ export default function EmailPopup() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-start p-4 md:p-8 bg-black/50 backdrop-blur-sm">
-      <div
-        className={`relative w-full max-w-sm rounded-md overflow-hidden shadow-2xl border ${
-          darkMode
-            ? "bg-[#0A0A0A] border-gray-800/60"
-            : "bg-white border-[#e2e8f0]"
-        }`}
-        style={{ animation: "slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both" }}
-      >
-        {/* Top accent bar */}
-        <div className="h-[3px] w-full bg-[#2563eb]" />
 
-        <div className="p-6">
-          {/* Close Button */}
-          <button
-            onClick={closePopup}
-            className={`absolute top-5 right-5 rounded-full p-1.5 transition-all duration-200 ${
-              darkMode
-                ? "text-gray-600 hover:text-gray-300 hover:bg-white/5"
-                : "text-gray-300 hover:text-gray-500 hover:bg-gray-100"
-            }`}
-          >
-            <X size={16} strokeWidth={2.5} />
-          </button>
+      <div className="relative flex flex-col">
 
-          {/* Icon + Title row */}
-          <div className="flex items-center gap-3 mb-3">
-            <div
-              className={`flex items-center justify-center w-9 h-9 rounded-xl ${
-                darkMode ? "bg-[#2563eb]/10" : "bg-[#eff6ff]"
-              }`}
-            >
-              <Mail className="w-4.5 h-4.5 text-[#2563eb]" size={18} />
-            </div>
-            <h2
-              className={`text-[1.35rem] font-bold leading-tight tracking-tight font-['Sora'] ${
-                darkMode ? "text-white" : "text-[#0f172a]"
-              }`}
-            >
-              Stay Updated
-            </h2>
-          </div>
+        {/* Email Popup */}
+        <div
+          className={`relative w-full max-w-sm rounded-md overflow-hidden shadow-2xl border ${
+            darkMode
+              ? "bg-[#0A0A0A] border-gray-800/60"
+              : "bg-white border-[#e2e8f0]"
+          }`}
+          style={{ animation: "slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both" }}
+          onClick={() => setShowArrow(false)}
+        >
+          {/* Top accent bar */}
+          <div className="h-[3px] w-full bg-[#2563eb]" />
 
-          {/* Divider */}
-          <div className={`h-px mb-4 ${darkMode ? "bg-gray-800" : "bg-[#f1f5f9]"}`} />
-
-          {/* Description */}
-          <p
-            className={`text-[0.8rem] leading-relaxed mb-5 ${
-              darkMode ? "text-gray-500" : "text-[#64748b]"
-            }`}
-          >
-            Get the latest updates, exclusive offers, and study resources delivered to your inbox.
-          </p>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-2.5">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none border transition-all duration-200
-                focus:ring-2 focus:ring-[#2563eb]/30 focus:border-[#2563eb]
-                ${
-                  darkMode
-                    ? "bg-[#111111] border-gray-800 text-gray-300 placeholder:text-gray-600"
-                    : "bg-[#f8fafc] border-[#e2e8f0] text-[#334155] placeholder:text-[#94a3b8]"
-                }`}
-            />
-
+          <div className="p-6">
+            {/* Close Button */}
             <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] active:scale-[0.98] text-white py-2.5 rounded-lg font-semibold text-sm transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
+              onClick={closePopup}
+              className={`absolute top-5 right-5 rounded-full p-1.5 transition-all duration-200 ${
+                darkMode
+                  ? "text-gray-600 hover:text-gray-300 hover:bg-white/5"
+                  : "text-gray-300 hover:text-gray-500 hover:bg-gray-100"
+              }`}
             >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Subscribing...
-                </span>
-              ) : (
-                <span className="flex items-center justify-center gap-2">
-                  Subscribe Now
-                  <ArrowRight size={15} />
-                </span>
-              )}
+              <X size={16} strokeWidth={2.5} />
             </button>
-          </form>
 
-          {/* Footer */}
-          <p className={`text-[0.7rem] text-center mt-4 tracking-wide ${
-            darkMode ? "text-gray-700" : "text-gray-300"
-          }`}>
-            NO SPAM &nbsp;·&nbsp; UNSUBSCRIBE ANYTIME
-          </p>
+            {/* Icon + Title row */}
+            <div className="flex items-center gap-3 mb-3">
+              <div
+                className={`flex items-center justify-center w-9 h-9 rounded-xl ${
+                  darkMode ? "bg-[#2563eb]/10" : "bg-[#eff6ff]"
+                }`}
+              >
+                <Mail className="w-4.5 h-4.5 text-[#2563eb]" size={18} />
+              </div>
+              <h2
+                className={`text-[1.35rem] font-bold leading-tight tracking-tight font-['Sora'] ${
+                  darkMode ? "text-white" : "text-[#0f172a]"
+                }`}
+              >
+                Stay Updated
+              </h2>
+            </div>
+
+            {/* Divider */}
+            <div className={`h-px mb-4 ${darkMode ? "bg-gray-800" : "bg-[#f1f5f9]"}`} />
+
+            {/* Description */}
+            <p
+              className={`text-[0.8rem] leading-relaxed mb-5 ${
+                darkMode ? "text-gray-500" : "text-[#64748b]"
+              }`}
+            >
+              Get the latest updates, exclusive offers, and study resources delivered to your inbox.
+            </p>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-2.5">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none border transition-all duration-200
+                  focus:ring-2 focus:ring-[#2563eb]/30 focus:border-[#2563eb]
+                  ${
+                    darkMode
+                      ? "bg-[#111111] border-gray-800 text-gray-300 placeholder:text-gray-600"
+                      : "bg-[#f8fafc] border-[#e2e8f0] text-[#334155] placeholder:text-[#94a3b8]"
+                  }`}
+              />
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] active:scale-[0.98] text-white py-2.5 rounded-lg font-semibold text-sm transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Subscribing...
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    Subscribe Now
+                    <ArrowRight size={15} />
+                  </span>
+                )}
+              </button>
+            </form>
+
+            {/* Footer */}
+            <p className={`text-[0.7rem] text-center mt-4 tracking-wide ${
+              darkMode ? "text-gray-700" : "text-gray-300"
+            }`}>
+              NO SPAM &nbsp;·&nbsp; UNSUBSCRIBE ANYTIME
+            </p>
+          </div>
         </div>
+
+        {/* ── Better Arrow + Text BELOW popup ── */}
+        {showArrow && (
+          <div
+            className="flex items-start gap-3 mt-4 ml-4 pointer-events-none"
+            style={{ animation: "fadeIn 0.5s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both", opacity: 0 }}
+          >
+            {/* Curved arrow SVG */}
+            <svg
+              width="48"
+              height="56"
+              viewBox="0 0 48 56"
+              fill="none"
+              style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.35))", flexShrink: 0 }}
+            >
+              {/* Curved path going up */}
+              <path
+                d="M38 52 C38 52 10 48 8 24 C6 8 20 4 20 4"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Arrowhead at top */}
+              <path
+                d="M12 4 L20 2 L22 11"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
+
+            {/* Text */}
+            <p
+              className="text-white text-[17px] font-semibold leading-snug mt-6"
+              style={{
+                textShadow: "0 2px 8px rgba(0,0,0,0.5)",
+                fontFamily: "'Caveat', 'Segoe UI', cursive",
+                letterSpacing: "0.01em",
+              }}
+            >
+              Subscribe to get<br />latest updates
+            </p>
+          </div>
+        )}
+
       </div>
 
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-5px); }
         }
       `}</style>
     </div>
