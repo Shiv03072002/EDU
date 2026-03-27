@@ -11,10 +11,14 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
+    "install": "^0.13.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.7",
+    "npm": "^11.12.1",
+    "pdfjs-dist": "^5.5.207",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-pdf": "^10.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
